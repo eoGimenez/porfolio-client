@@ -1,10 +1,10 @@
 .projectCard {
   height: 20em;
-  text-align: left;
+  text-align: center;
   color: antiquewhite;
   cursor: pointer;
   padding: 1em;
-  overflow: hiddenper;
+  overflow: hidden;
 }
 .cardContainer {
   margin: auto;
@@ -21,6 +21,7 @@
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   margin: 1em 0;
+  text-align: left;
 }
 #projectDetail {
   width: 100%;
