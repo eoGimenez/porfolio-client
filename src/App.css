@@ -25,6 +25,9 @@ h1 {
   grid-auto-flow: row;
   margin: 2em;
 }
+.home--welcome {
+  text-align: left;
+}
 .projectDetail {
   margin: auto;
   display: flex;
@@ -85,6 +88,7 @@ h1 {
 .header h1 {
   max-width: 9em;
   margin: auto;
+  margin-bottom: 1.4em;
 }
 
 @media (orientation: landscape) and (max-width: 48em) {
@@ -128,6 +132,7 @@ h1 {
   }
   .header h1 {
     max-width: 20em;
+    margin-bottom: 0;
   }
 
   /*   .button__style {
@@ -144,5 +149,8 @@ h1 {
   .app {
     grid-template-columns: repeat(3, 1fr);
     gap: 1em;
+  }
+  .home--welcome {
+    text-align: center;
   }
 }

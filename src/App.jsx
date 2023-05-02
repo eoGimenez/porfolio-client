@@ -52,7 +52,7 @@ function App() {
       {!showDetail && !newProject && !isntHome && (
         <div className='header'>
           <h1>PORTFOLIO EUGENIO GIMÉNEZ</h1>
-          <h5>
+          <h5 className='home--welcome'>
             Aquí podrás encontrar una lista de todos los proyectos en los que he
             participado. En cada tarjeta, podrás ver las tecnologías utilizadas
             en el proyecto, una breve descripción del mismo y un enlace al
