@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// hay que cambiar todo a fetch,
 export default class ProjectsService {
   constructor() {
     this.API_URL = import.meta.env.VITE_API_URL;
