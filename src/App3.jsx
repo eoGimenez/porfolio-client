@@ -6,9 +6,9 @@ import ProjectCard from './components/Project/ProjectCard';
 import ProjectDetail from './components/Project/ProjectDetail';
 import NewProject from './components/Project/NewProject';
 import Footer from './components/Footer/Footer';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import ProjectIdPage from './pages/ProjectIdPage/ProjectIdPage';
-import AboutMePage from './pages/AboutMePage/AboutMePage';
+import { Route, Routes } from 'react-router-dom';
+// import ProjectIdPage from './pages/ProjectIdPage/ProjectIdPage';
+// import AboutMePage from './pages/AboutMePage/AboutMePage';
 
 function App() {
   const { projects, getProjects } = useContext(projectsContext);
@@ -18,7 +18,7 @@ function App() {
   const [details, setDetails] = useState('app');
   const [somethingChange, setSomethingChange] = useState(false);
   const [isntHome, setIsntHome] = useState(false);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleClick = (showDetail, project) => {
     setShowDetail(showDetail);
@@ -33,10 +33,10 @@ function App() {
     if (newProject === false && showDetail === false) setDetails('app');
   };
 
-  const handleIsntHome = (isntHome) => {
-    setIsntHome(isntHome);
-    navigate('/');
-  };
+  // const handleIsntHome = (isntHome) => {
+  //   setIsntHome(isntHome);
+  //   navigate('/');
+  // };
   useEffect(() => {
     getProjects();
   }, [somethingChange]);
@@ -98,7 +98,7 @@ function App() {
         </>
       )}
       <Routes>
-        <Route
+        {/* <Route
           path={'/:projectId'}
           element={
             <ProjectIdPage
@@ -110,8 +110,8 @@ function App() {
               somethingChange={somethingChange}
             />
           }
-        />
-        <Route
+        /> */}
+        {/* <Route
           path={'/aboutme'}
           element={
             <AboutMePage
@@ -120,7 +120,7 @@ function App() {
               setIsntHome={setIsntHome}
             />
           }
-        />
+        /> */}
         <Route
           path={'/'}
           element={
