@@ -1,0 +1,40 @@
+:root {
+  --primary--color: #e67e22;
+  --lighter--secundary: #fae5d3;
+  --lighter--primary: #fdf2e9;
+  --darker--primary: #cf711f;
+  --primary--font: #555;
+  --darker--font: #333;
+  --lighter--font: #ddd;
+}
+.hero__title {
+  margin-top: 3rem;
+}
+.hero {
+  margin: 1rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  color: var(--darker--font);
+}
+.hero__text {
+  font-size: 1.6rem;
+  margin: 0.7rem auto;
+}
+.img__me {
+  width: 20rem;
+  border-radius: 50%;
+}
+/* SOLUCIONAR PROBLEMA DE FLEX DIRECTION */
+.link__cv:link,
+.link__cv:visited {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: var(--primary--color);
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  font-family: inherit;
+}

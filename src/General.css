@@ -1,0 +1,16 @@
+:root {
+  --primary--font--color: #343a40;
+  --lighter-gray: #495057;
+  --max-lighter-gray: #868e96;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex__direction__col {
+  flex-direction: column;
+  gap: 1rem;
+}

@@ -1,8 +1,18 @@
 import axios from 'axios';
-// hay que cambiar todo a fetch,
+
 export default class ProjectsService {
   constructor() {
-    this.API_URL = import.meta.env.VITE_API_URL;
+    this.API_URL = axios.create({
+      baseURL: `${import.meta.env.VITE_API_URL}/auth`,
+    });
+    this.API_URL.interceptors.request.use((config) => {
+      const storedToken = localStorage.getItem('authToken');
+
+      if (storedToken) {
+        config.headers = { Authorisation: `Bearer ${storedToken}` };
+      }
+      return config;
+    });
   }
 
   getProjects() {
