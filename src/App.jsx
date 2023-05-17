@@ -5,6 +5,7 @@ import Hero from './components/Hero/Hero';
 import Nav from './components/Nav/Nav';
 import { projectsContext } from './context/projects.context';
 import ProjectCard from './components/Project/Card/ProjectCard';
+import About from './components/About/About';
 
 export default function App() {
   const { projects, getProjects } = useContext(projectsContext);
@@ -22,9 +23,9 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        {!showDetail && 
-        <h2 className='section__project__title'>Mis proyectos</h2>
-        }
+        {!showDetail && (
+          <h3 className='section__project__title'>Mis proyectos</h3>
+        )}
         {!showDetail &&
           projects.map((project) => (
             <ProjectCard
@@ -34,6 +35,7 @@ export default function App() {
               showDetail={showDetail}
             />
           ))}
+        {!showDetail && <About />}
       </main>
     </>
   );

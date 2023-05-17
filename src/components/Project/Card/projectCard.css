@@ -1,12 +1,4 @@
-:root {
-  --primary--color: #e67e22;
-  --lighter--secundary: #fae5d3;
-  --lighter--primary: #fdf2e9;
-  --darker--primary: #cf711f;
-  --primary--font: #555;
-  --darker--font: #333;
-  --lighter--font: #ddd;
-}
+
 
 .card__section {
   margin-bottom: 4.4rem;
@@ -49,6 +41,7 @@
 }
 .card__img {
   width: 100%;
+  max-height: 31rem;
 }
 .card__intro {
   font-size: 1.6rem;

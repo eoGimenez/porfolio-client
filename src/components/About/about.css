@@ -1,0 +1,21 @@
+.section__about {
+  background-color: var(--lighter--primary);
+  max-width: 50rem;
+  margin-inline: auto;
+  padding: 3rem 2rem;
+}
+.about__header {
+  font-size: 2.4rem;
+  margin-bottom: 1.6rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.08rem;
+}
+.about__description {
+  font-size: 1.6rem;
+  max-width: 45ch;
+  padding-inline: 1rem;
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  margin-bottom: 2.4rem;
+}

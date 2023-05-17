@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './projectCard.css';
 import { useState } from 'react';
 
@@ -18,7 +19,7 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
               handleClick(!showDetail, project);
             }}
           >
-            <h2 className='card__title'>{project.title}</h2>
+            <h3 className='card__title'>{project.title}</h3>
             <div className='card__techs'>
               {project.technologies.map((tech, i) => (
                 <i key={i} className={tech}></i>
@@ -27,18 +28,17 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
             <p className='card__intro'>{project.description}</p>
           </div>
           <div className='link__container'>
-            <a
+            <Link
               className='btn link__github'
-              href={project.urlGit}
+              to={project.urlGit}
               onMouseEnter={() => {
                 setBounce('fa-brands fa-github fa-xl fa-bounce');
               }}
               onMouseLeave={() => setBounce('fa-brands fa-github fa-xl')}
               target='_blank'
-              rel='noreferrer'
             >
               <i className={bounce}></i> R e p o
-            </a>
+            </Link>
           </div>
         </div>
       )}

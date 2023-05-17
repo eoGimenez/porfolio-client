@@ -1,6 +1,7 @@
 // import { useEffect } from 'react';
 import './hero.css';
 import '../../App.css';
+import { Link } from 'react-router-dom';
 
 export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
   /*   useEffect(() => {
@@ -10,38 +11,9 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
   return (
     <section className='section__hero'>
       <div className='hero'>
-        <p className='hero__header'>Web Developer</p>
-        <h1 className='hero__title'>Eugenio Giménez</h1>
-        <div className='hero__text'>
-          <p>
-            Mi nombre es Eugenio Giménez y soy un Desarrollador Web. Desde
-            joven, estudié algunos lenguajes de programación como{' '}
-            <strong>C++, Delphi y Pascal</strong>. Luego decidí estudiar
-            Hostelería y me mudé a Barcelona. Durante mis más de 10 años de
-            experiencia en Hostelería, pude seguir alimentando mi constante
-            deseo de aprender. Además, pude poner en práctica otra de mis
-            pasiones, que es enseñar. Siempre estaba investigando y leyendo, lo
-            que me permitió ser el candidato ideal para formar a los aprendices
-            o ayudantes. Con el tiempo, llegué a{' '}
-            <strong>liderar equipos</strong> y fue una gran experiencia. Trabajé
-            en lugares como Martin Berasategui, así como en hoteles como Arts o
-            Hilton, donde{' '}
-            <strong>desarrollé un gran control del estrés.</strong> En equipos
-            tan grandes, dependes de tus compañeros y es difícil gestionar la
-            ansiedad o la frustración, pero pude superarlo y hoy puedo decir que
-            el estrés no afecta a la calidad de mi trabajo.
-          </p>
-          <p>
-            Lo cierto es que nunca dejé de tener mucho interés en el universo
-            digital y, como me encanta cocinar y seguir haciéndolo en mi casa,
-            decidí dar el salto y apuntarme en <strong>IronHack</strong>. Quería
-            que fuera algo muy intenso porque quería probarme a mí mismo, y la
-            verdad es que después de familiarizarme con tecnologías como{' '}
-            <strong>ReactJS, ExpressJS, JavaScript, NodeJS</strong> y otras en
-            un período tan corto, no me arrepiento en absoluto. Además, aprendí
-            a ser autosuficiente en la búsqueda de información, por lo que ahora
-            estoy enfocado al 100% en incorporarme al ecosistema digital.
-          </p>
+        <div className='hero__header__container'>
+          <h1 className='hero__title'>Eugenio Giménez</h1>
+          <p className='hero__header'>Web Developer</p>
         </div>
         <div className='img__container'>
           <img
@@ -49,14 +21,13 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
             src='https://res.cloudinary.com/dbld4vcec/image/upload/v1680779992/projects/eugenioPortfolio_k13tul.jpg'
             alt='Profile image of Eugenio Giménez'
           />
-          <a
+          <Link
             className='btn link__cv'
-            href='https://drive.google.com/file/d/1tTCVzxgUsEMN4EIkMvtSrAdNZ2vAXoCJ/view?usp=share_link'
+            to='https://drive.google.com/file/d/1tTCVzxgUsEMN4EIkMvtSrAdNZ2vAXoCJ/view?usp=share_link'
             target='_blank'
-            rel='noreferrer'
           >
             My CV
-          </a>
+          </Link>
         </div>
 
         <div className='my__techs'>

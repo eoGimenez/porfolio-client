@@ -1,0 +1,39 @@
+#navbar__togg {
+  border: none;
+  box-shadow: none;
+}
+.header {
+
+}
+.nav__custom {
+  background-color: var(--primary--color);
+  padding: 1.4rem 0;
+}
+.navbar-nav {
+  padding-top: 1rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  gap: 1rem;
+}
+.nav-item {
+  margin-right: auto;
+}
+.nav-link:link,
+.nav-link:visited {
+  color: var(--most--lighter);
+  padding: 1.2rem 2.4rem;
+  font-weight: 500;
+  line-height: 0.7;
+  cursor: pointer;
+
+  display: flex;
+  /* justify-content: start; */
+  align-items: center;
+
+  transition: all 0.3s;
+}
+.nav-link:hover,
+.nav-link:active {
+  border-radius: 9px;
+  box-shadow: inset 0 0 0.9rem var(--shadow--black);
+}

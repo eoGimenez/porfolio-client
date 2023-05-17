@@ -1,13 +1,3 @@
-:root {
-  --primary--color: #e67e22;
-  --lighter--secundary: #fae5d3;
-  --lighter--primary: #fdf2e9;
-  --darker--primary: #cf711f;
-  --primary--font: #555;
-  --darker--font: #333;
-  --lighter--font: #ddd;
-}
-
 .container {
   max-width: 39rem;
   margin-inline: auto;
@@ -27,7 +17,7 @@
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  padding: 0.8rem 1.6rem;
+  padding: 0.6rem 2rem;
   border-radius: 9px;
   font-family: inherit;
   text-align: center;
@@ -37,7 +27,7 @@
 
 .link__cv:link,
 .link__cv:visited {
-  color: #fff;
+  color: var(--most--lighter);
   background-color: var(--primary--color);
 }
 .link__cv:hover,
@@ -47,16 +37,22 @@
 
 .link__github:link,
 .link__github:visited {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
   color: var(--darker--font);
+  box-shadow: inset 0 0 0 0.3rem var(--shadow--orange);
 }
 .link__github:hover,
 .link__github:active {
-  box-shadow: inset 0 0 0 0.3rem rgba(230, 125, 34, 0.5);
+  /* box-shadow: inset 0 0 0 0.3rem rgba(230, 125, 34, 0.5); para el hover de portatil en adelante. */
 }
 
 *:focus {
   outline: none;
-  box-shadow: 0 0 0 0.4rem rgba(230, 125, 34, 0.5);
+  box-shadow: 0 0 0 0.4rem var(--shadow--primary);
+  border-radius: 9px;
 }
 
 .fa-square-js {
@@ -85,4 +81,3 @@
 .fa-envira {
   color: #4db33d;
 }
-
