@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import ProjectsService from '../../services/projects.service';
+import ProjectsService from '../../src/services/projects.service';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { Link } from 'react-router-dom';
 import './Project.css';
-import EditProject from './EditProject';
+import EditProject from '../../src/components/Project/EditProject';
 
 export default function ProjectDetail({
   project,

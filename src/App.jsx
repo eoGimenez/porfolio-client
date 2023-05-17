@@ -6,23 +6,25 @@ import Nav from './components/Nav/Nav';
 import { projectsContext } from './context/projects.context';
 import ProjectCard from './components/Project/Card/ProjectCard';
 import About from './components/About/About';
+import ProjectDetail from './components/Project/Detail/ProjectDetail';
+import ContactMe from './components/Contact/Contact';
 
 export default function App() {
-  const { projects, getProjects } = useContext(projectsContext);
+  const { projects } = useContext(projectsContext);
   const [showDetail, setShowDetail] = useState(false);
   const [project, setProject] = useState({});
 
   const handleClick = (showDetail, project) => {
+    window.scrollTo(0, 0);
     setShowDetail(showDetail);
     setProject(project);
-    window.scrollTo(0, 0);
   };
 
   return (
     <>
       <Nav />
       <main>
-        <Hero />
+        {!showDetail && <Hero />}
         {!showDetail && (
           <h3 className='section__project__title'>Mis proyectos</h3>
         )}
@@ -36,6 +38,14 @@ export default function App() {
             />
           ))}
         {!showDetail && <About />}
+        {!showDetail && <ContactMe />}
+        {showDetail && (
+          <ProjectDetail
+            project={project}
+            showDetail={showDetail}
+            handleClick={handleClick}
+          />
+        )}
       </main>
     </>
   );

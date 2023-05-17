@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import { projectsContext } from '../src/context/projects.context';
 import ProjectCard from './components/Project/ProjectCard';
-import ProjectDetail from '../src/components/Project/ProjectDetail';
+import ProjectDetail from './Project/ProjectDetail';
 import NewProject from '../src/components/Project/NewProject';
 import Footer from '../src/components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';

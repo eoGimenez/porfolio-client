@@ -2,9 +2,7 @@
   border: none;
   box-shadow: none;
 }
-.header {
 
-}
 .nav__custom {
   background-color: var(--primary--color);
   padding: 1.4rem 0;

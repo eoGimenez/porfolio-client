@@ -27,14 +27,7 @@
   color: var(--darker--primary);
   margin-bottom: 2.4rem;
 }
-.img__container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2.4rem;
-}
+
 .img__me {
   width: 20rem;
   border-radius: 50%;

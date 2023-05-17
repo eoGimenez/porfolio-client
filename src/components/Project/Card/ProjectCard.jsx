@@ -6,7 +6,7 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
   const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
   return (
     <section className='card__section'>
-      {!showDetail && (
+      {/* {!showDetail && ( */}
         <div className='card__container'>
           <img
             className='card__img'
@@ -27,7 +27,7 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
             </div>
             <p className='card__intro'>{project.description}</p>
           </div>
-          <div className='link__container'>
+          {/* <div className='link__container'> */}
             <Link
               className='btn link__github'
               to={project.urlGit}
@@ -39,9 +39,9 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
             >
               <i className={bounce}></i> R e p o
             </Link>
-          </div>
+          {/* </div> */}
         </div>
-      )}
+      {/* )} */}
     </section>
   );
 }
