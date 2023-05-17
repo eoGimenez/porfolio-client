@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
-import { projectsContext } from './context/projects.context';
+import { projectsContext } from '../src/context/projects.context';
 import ProjectCard from './components/Project/ProjectCard';
-import ProjectDetail from './components/Project/ProjectDetail';
-import NewProject from './components/Project/NewProject';
-import Footer from './components/Footer/Footer';
+import ProjectDetail from '../src/components/Project/ProjectDetail';
+import NewProject from '../src/components/Project/NewProject';
+import Footer from '../src/components/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 // import ProjectIdPage from './pages/ProjectIdPage/ProjectIdPage';
 // import AboutMePage from './pages/AboutMePage/AboutMePage';
