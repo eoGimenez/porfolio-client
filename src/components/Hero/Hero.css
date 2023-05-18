@@ -8,7 +8,7 @@
   margin-inline: auto;
   padding-inline: 2rem;
 }
-.hero__header__container {
+.hero__header__conteiner {
   display: flex;
   flex-direction: column;
 }

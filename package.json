@@ -11,6 +11,7 @@
     "lint": "eslint --fix . --ext .js,.jsx"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "axios": "^1.3.4",
     "dotenv": "^16.0.3",
     "react": "^18.2.0",

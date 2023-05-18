@@ -6,7 +6,7 @@ export default function ProjectDetail({ project, showDetail, handleClick }) {
   const [beat, setBeat] = useState('fa-brands fa-github fa-xl');
   return (
     <section className='section__detail'>
-      <div className='project__container'>
+      <div className='project__conteiner'>
         <div className='project__body'>
           <h3 className='project__title'>{project.title}</h3>
           <div className=' tech__print'>
@@ -17,7 +17,7 @@ export default function ProjectDetail({ project, showDetail, handleClick }) {
           <p>{project.description}</p>
           <p>{project.secDescription}</p>
         </div>
-        <div className='img__container'>
+        <div className='img__conteiner'>
           <img
             src={project.image}
             className='project__img'

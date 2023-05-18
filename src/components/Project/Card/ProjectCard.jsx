@@ -7,7 +7,7 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
   return (
     <section className='card__section'>
       {/* {!showDetail && ( */}
-        <div className='card__container'>
+        <div className='card__conteiner'>
           <img
             className='card__img'
             src={project.image}
@@ -27,7 +27,7 @@ export default function ProjectCard({ project, handleClick, showDetail }) {
             </div>
             <p className='card__intro'>{project.description}</p>
           </div>
-          {/* <div className='link__container'> */}
+          {/* <div className='link__conteiner'> */}
             <Link
               className='btn link__github'
               to={project.urlGit}

@@ -4,7 +4,7 @@
 .card__section:last-child {
   margin-bottom: 6.2rem;
 }
-.card__container {
+.card__conteiner {
   display: grid;
   max-width: 40rem;
   margin-inline: auto;

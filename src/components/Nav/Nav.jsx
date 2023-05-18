@@ -5,7 +5,7 @@ export default function Nav() {
   return (
     <header className='header'>
       <nav className='navbar navbar-dark navbar-expand-lg nav__custom'>
-        <div className='container-fluid '>
+        <div className='conteiner-fluid '>
           <button
             id='navbar__togg'
             className='navbar-toggler'

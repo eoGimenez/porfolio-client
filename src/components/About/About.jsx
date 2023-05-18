@@ -1,9 +1,9 @@
-import './about.css'
+import './about.css';
 
 export default function About() {
   return (
     <section className='section__about'>
-        <h3 className='about__header'>Un poco sobre mi:</h3>
+      <h3 className='about__header'>Un poco sobre mi:</h3>
       <div className='about__description'>
         <p>
           Mi nombre es Eugenio Giménez y soy un Desarrollador Web. Desde joven,

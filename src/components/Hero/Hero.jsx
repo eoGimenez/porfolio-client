@@ -11,11 +11,11 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
   return (
     <section className='section__hero'>
       <div className='hero'>
-        <div className='hero__header__container'>
+        <div className='hero__header__conteiner'>
           <h1 className='hero__title'>Eugenio Giménez</h1>
           <p className='hero__header'>Web Developer</p>
         </div>
-        <div className='img__container'>
+        <div className='img__conteiner'>
           <img
             className='img__me'
             src='https://res.cloudinary.com/dbld4vcec/image/upload/v1680779992/projects/eugenioPortfolio_k13tul.jpg'
