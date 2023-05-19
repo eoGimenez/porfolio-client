@@ -1,4 +1,4 @@
-# Portfolio - client side ( REFACTORIZANDO )
+# Portfolio - client side ( REFACTORIZANDO HTML & CSS)
 
 Aquí pueden encontrar el Front End para generar un portfolio, tener en cuenta que es necesario crear la API.
 
