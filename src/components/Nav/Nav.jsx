@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import './Nav.css';
 
 export default function Nav() {
@@ -24,24 +23,27 @@ export default function Nav() {
           >
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <Link to='#' className='nav-link linkto__about'>
+                <a href='#section__hero' className='nav-link linkto__about'>
                   Home
-                </Link>
+                </a>
               </li>
               <li className='nav-item'>
-                <Link to='#' className='nav-link linkto__projects'>
+                <a href='#section__project__title' className='nav-link linkto__projects'>
                   Projects
-                </Link>
+                </a>
               </li>
               <li className='nav-item'>
-                <Link to='#' className='nav-link linkto__about'>
+                <a href='#section__about' className='nav-link linkto__about'>
                   About me
-                </Link>
+                </a>
               </li>
               <li className='nav-item'>
-                <Link to='#' className='nav-link linkto__contact__me'>
+                <a
+                  href='#section__contact'
+                  className='nav-link linkto__contact__me'
+                >
                   Contact me
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

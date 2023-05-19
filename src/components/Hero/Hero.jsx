@@ -9,7 +9,7 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
   }, []); */
 
   return (
-    <section className='section__hero'>
+    <section id='section__hero'>
       <div className='hero'>
         <div className='hero__header__conteiner'>
           <h1 className='hero__title'>Eugenio Giménez</h1>

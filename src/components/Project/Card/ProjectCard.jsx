@@ -5,7 +5,7 @@ import { useState } from 'react';
 export default function ProjectCard({ project, handleClick, showDetail }) {
   const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
   return (
-    <section className='card__section'>
+    <section id='card__section'>
       {/* {!showDetail && ( */}
         <div className='card__conteiner'>
           <img

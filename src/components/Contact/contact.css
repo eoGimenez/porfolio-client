@@ -1,4 +1,4 @@
-.section__contact {
+#section__contact {
   font-size: 1.8rem;
   max-width: 50rem;
   margin: 0 auto 2.4rem;
@@ -52,10 +52,11 @@
   border: none;
   background-color: var(--most--lighter);
   border-radius: 9px;
+  resize: none;
 }
 .btn__form {
   border: none;
-    padding: .8rem 1.6rem;
+  padding: 0.8rem 1.6rem;
   color: var(--most--lighter);
   background-color: var(--primary--color);
 }

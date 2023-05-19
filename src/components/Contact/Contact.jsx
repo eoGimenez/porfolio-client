@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 export default function ContactMe() {
   const refForm = useRef();
   const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +23,7 @@ export default function ContactMe() {
   };
 
   return (
-    <section className='section__contact'>
+    <section id='section__contact'>
       <div className='contact__links__container'>
         <Link
           className='link__my__github'
@@ -37,7 +38,7 @@ export default function ContactMe() {
         </Link>
         <Link
           className='link__linkedin'
-          to={'https://www.linkedin.com/in/eogimenez/'}
+          to='https://www.linkedin.com/in/eogimenez/'
           target='_blank'
         >
           <i className='fa-brands fa-linkedin fa-lg'></i>{' '}

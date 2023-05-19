@@ -43,13 +43,13 @@ body {
   position: relative;
 }
 
-.section__project__title {
+#section__project__title {
   font-size: 1.8rem;
   line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--primary--font);
   letter-spacing: -0.09rem;
-  padding-inline: 2rem;
-  margin-bottom: 2.2rem;
+  padding: 1rem 2rem 0;
+  margin: 2.2rem;
 }

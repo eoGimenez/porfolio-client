@@ -17,6 +17,14 @@
   gap: 1rem;
   margin-bottom: 2.4rem;
 }
+.link:link,
+.link:visited {
+  text-decoration: none;
+  font-family: 'Rubik', sans-serif;
+  color: var(--primary--font);
+  font-weight: 500;
+  
+}
 .btnn,
 .btn:link,
 .btn:visited {

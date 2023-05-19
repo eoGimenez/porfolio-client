@@ -8,11 +8,13 @@ import ProjectCard from './components/Project/Card/ProjectCard';
 import About from './components/About/About';
 import ProjectDetail from './components/Project/Detail/ProjectDetail';
 import ContactMe from './components/Contact/Contact';
+import Footer from './components/Footer/Footer';
 
 export default function App() {
   const { projects } = useContext(projectsContext);
   const [showDetail, setShowDetail] = useState(false);
   const [project, setProject] = useState({});
+  
 
   const handleClick = (showDetail, project) => {
     window.scrollTo(0, 0);
@@ -26,7 +28,7 @@ export default function App() {
       <main>
         {!showDetail && <Hero />}
         {!showDetail && (
-          <h3 className='section__project__title'>Mis proyectos</h3>
+          <h3 id='section__project__title'>Mis proyectos</h3>
         )}
         {!showDetail &&
           projects.map((project) => (
@@ -47,6 +49,7 @@ export default function App() {
           />
         )}
       </main>
+      <Footer />
     </>
   );
 }
