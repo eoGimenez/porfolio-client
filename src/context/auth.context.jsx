@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import AuthService from '../services/auth.service';
 
-const authContext = createContext();
+const AuthContext = createContext();
 
 function AuthProviderWrapper({ children }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -59,7 +59,7 @@ function AuthProviderWrapper({ children }) {
   }, []);
 
   return (
-    <authContext.Provider
+    <AuthContext.Provider
       value={{
         isLoggedIn,
         user,
@@ -71,8 +71,8 @@ function AuthProviderWrapper({ children }) {
       }}
     >
       {children}
-    </authContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-export { authContext, AuthProviderWrapper };
+export { AuthContext, AuthProviderWrapper };

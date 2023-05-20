@@ -9,28 +9,34 @@ import About from './components/About/About';
 import ProjectDetail from './components/Project/Detail/ProjectDetail';
 import ContactMe from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
+import UserAccess from './components/User/UserAccess/UserAccess';
 
 export default function App() {
   const { projects } = useContext(projectsContext);
   const [showDetail, setShowDetail] = useState(false);
   const [project, setProject] = useState({});
-  
+  const [userDash, setUserDash] = useState(false);
 
   const handleClick = (showDetail, project) => {
     window.scrollTo(0, 0);
     setShowDetail(showDetail);
     setProject(project);
   };
+  const handleAPI = (userDash) => {
+    console.log(userDash);
+    setUserDash(userDash);
+  };
 
   return (
     <>
       <Nav />
       <main>
-        {!showDetail && <Hero />}
-        {!showDetail && (
+        {!showDetail && !userDash && <Hero />}
+        {!showDetail && !userDash && (
           <h3 id='section__project__title'>Mis proyectos</h3>
         )}
         {!showDetail &&
+          !userDash &&
           projects.map((project) => (
             <ProjectCard
               key={project._id}
@@ -39,17 +45,20 @@ export default function App() {
               showDetail={showDetail}
             />
           ))}
-        {!showDetail && <About />}
-        {!showDetail && <ContactMe />}
-        {showDetail && (
+        {!showDetail && !userDash && <About />}
+        {!showDetail && !userDash && <ContactMe />}
+        {showDetail && !userDash && (
           <ProjectDetail
             project={project}
             showDetail={showDetail}
             handleClick={handleClick}
           />
         )}
+        {!showDetail && userDash && (
+          <UserAccess handleAPI={handleAPI} userDash={userDash} />
+        )}
       </main>
-      <Footer />
+      <Footer handleAPI={handleAPI} userDash={userDash} />
     </>
   );
 }

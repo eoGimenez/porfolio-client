@@ -3,6 +3,7 @@
   margin-inline: auto;
   padding-inline: 3.2rem;
 }
+
 .link__conteiner {
   display: flex;
   justify-content: center;
@@ -23,7 +24,6 @@
   font-family: 'Rubik', sans-serif;
   color: var(--primary--font);
   font-weight: 500;
-  
 }
 .btnn,
 .btn:link,

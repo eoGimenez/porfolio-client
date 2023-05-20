@@ -1,7 +1,7 @@
 import './footer.css';
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
+export default function Footer({ handleAPI, userDash }) {
   return (
     <footer id='footer'>
       <div className='footer__container'>
@@ -11,7 +11,7 @@ export default function Footer() {
             <li>
               <Link
                 className='link footer__link'
-                to='https://drive.google.com/flie/d/1tTCVzxgUsEMN4EIkMvtSrAdNZ2vAXoCJ/view?usp=share_link'
+                to='https://drive.google.com/file/d/1tTCVzxgUsEMN4EIkMvtSrAdNZ2vAXoCJ/view?usp=share_link'
                 target='_blank'
               >
                 Curriculum vitae
@@ -40,7 +40,7 @@ export default function Footer() {
         <div className='contacto__col'>
           <p className='footer__heading'>Información</p>
           <address className='personal__info'>
-            <p>Barcelona, Barcelona, España</p>
+            <p>Barcelona, España</p>
             <p>
               <Link className='link' to='tel:622 80 80 43'>
                 622 80 80 43
@@ -57,7 +57,13 @@ export default function Footer() {
           <p className='footer__heading'>Back-end</p>
           <ul className='admin__links'>
             <li>
-              <Link className='link' to='#'>
+              <Link
+                className='link'
+                to='#'
+                onClick={() => {
+                  handleAPI(!userDash);
+                }}
+              >
                 Panel API
               </Link>
             </li>

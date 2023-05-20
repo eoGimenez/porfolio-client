@@ -14,7 +14,7 @@ export default class AuthService {
     });
   }
 
-  signup(req) {
+  signUp(req) {
     return this.API_URL.post('/signup', req);
   }
 

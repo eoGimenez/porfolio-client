@@ -26,6 +26,7 @@
   font-weight: 500;
 }
 .project__img {
+  margin-bottom: 1.6rem;
   max-width: 100%;
   border-radius: 11px;
 }

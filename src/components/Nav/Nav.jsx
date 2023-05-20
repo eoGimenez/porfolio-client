@@ -23,12 +23,18 @@ export default function Nav() {
           >
             <ul className='navbar-nav'>
               <li className='nav-item'>
-                <a href='#section__hero' className='nav-link linkto__about'>
+                <a
+                  href='https://portfolio-eogimenez.netlify.app/'
+                  className='nav-link linkto__about'
+                >
                   Home
                 </a>
               </li>
               <li className='nav-item'>
-                <a href='#section__project__title' className='nav-link linkto__projects'>
+                <a
+                  href='#section__project__title'
+                  className='nav-link linkto__projects'
+                >
                   Projects
                 </a>
               </li>
