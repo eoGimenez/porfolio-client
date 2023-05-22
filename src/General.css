@@ -44,6 +44,7 @@
 .link__cv:visited {
   color: var(--most--lighter);
   background-color: var(--primary--color);
+  margin-bottom: 1.2rem;
 }
 .link__cv:hover,
 .link__cv:active {
@@ -63,6 +64,7 @@
 .link__github:active {
   box-shadow: inset 0 0 0 0.3rem rgba(230, 125, 34, 0.5); /*para el hover de portatil en adelante. */
 }
+
 *:focus {
   outline: none;
   box-shadow: 0 0 0 0.4rem var(--shadow--primary);

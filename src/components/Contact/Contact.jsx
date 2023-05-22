@@ -6,7 +6,6 @@ import { useRef, useState } from 'react';
 export default function ContactMe() {
   const refForm = useRef();
   const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
-  
 
   const handleSubmit = (e) => {
     e.preventDefault();

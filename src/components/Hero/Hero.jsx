@@ -2,8 +2,10 @@
 import './hero.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
+  const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
   /*   useEffect(() => {
     setIsntHome(true);
   }, []); */
@@ -14,6 +16,26 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
         <div className='hero__header__conteiner'>
           <h1 className='hero__title'>Eugenio Giménez</h1>
           <p className='hero__header'>Web Developer</p>
+          <div className='hero__links__container'>
+            <Link
+              className='link__my__github'
+              to='https://github.com/eoGimenez'
+              onMouseEnter={() => {
+                setBounce('fa-brands fa-github fa-xl fa-bounce');
+              }}
+              onMouseLeave={() => setBounce('fa-brands fa-github fa-xl')}
+              target='_blank'
+            >
+              <i className={bounce}></i>
+            </Link>
+            <Link
+              className='link__linkedin'
+              to='https://www.linkedin.com/in/eogimenez/'
+              target='_blank'
+            >
+              <i className='fa-brands fa-linkedin fa-lg'></i>{' '}
+            </Link>
+          </div>
         </div>
         <div className='img__conteiner'>
           <img
@@ -26,7 +48,7 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
             to='https://drive.google.com/file/d/1tTCVzxgUsEMN4EIkMvtSrAdNZ2vAXoCJ/view?usp=share_link'
             target='_blank'
           >
-            My CV
+            Mi CV
           </Link>
         </div>
 
@@ -75,6 +97,11 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
             className='tech__logo'
             src='https://res.cloudinary.com/dbld4vcec/image/upload/v1681580489/projects/django_ffi2sm.png'
             alt='Django Logo'
+          />
+          <img
+            className='tech__logo'
+            src='https://res.cloudinary.com/dbld4vcec/image/upload/v1684695770/fastAPI_kmh5ed.png'
+            alt='FastAPI Logo'
           />
         </div>
       </div>

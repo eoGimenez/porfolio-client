@@ -35,16 +35,19 @@ export default function App() {
         {!showDetail && !userDash && (
           <h3 id='section__project__title'>Mis proyectos</h3>
         )}
-        {!showDetail &&
-          !userDash &&
-          projects.map((project) => (
-            <ProjectCard
-              key={project._id}
-              project={project}
-              handleClick={handleClick}
-              showDetail={showDetail}
-            />
-          ))}
+        <div className='card__section__container'>
+          {!showDetail &&
+            !userDash &&
+            projects.map((project, i) => (
+              <ProjectCard
+                key={project._id}
+                project={project}
+                index={i}
+                handleClick={handleClick}
+                showDetail={showDetail}
+              />
+            ))}
+        </div>
         {!showDetail && !userDash && <About />}
         {!showDetail && !userDash && <ContactMe />}
         {showDetail && !userDash && (

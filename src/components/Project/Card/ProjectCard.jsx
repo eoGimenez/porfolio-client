@@ -1,18 +1,30 @@
 import { Link } from 'react-router-dom';
 import './projectCard.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function ProjectCard({ project, handleClick, showDetail }) {
+export default function ProjectCard({
+  project,
+  handleClick,
+  showDetail,
+  index,
+}) {
+  const [side, setSide] = useState('');
   const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
+  useEffect(() => {
+    index % 2 === 0 ? setSide('left__side') : setSide('rigth__side');
+  }, []);
+
   return (
-    <section id='card__section'>
+    <section className='card__section'>
       {/* {!showDetail && ( */}
-      <div className='card__conteiner'>
-        <img
-          className='card__img'
-          src={project.image}
-          alt={'Imagen representativa del proyecto' + project.title}
-        />
+      <div className={'card__conteiner ' + side}>
+        <div className='img__container'>
+          <img
+            className='card__img'
+            src={project.image}
+            alt={'Imagen representativa del proyecto' + project.title}
+          />
+        </div>
         <div
           className='card__project'
           onClick={() => {
