@@ -1,138 +1,67 @@
-import { useContext, useEffect, useState } from 'react';
-import './App.css';
-import Navbar from './components/Navbar/Navbar';
+import { useContext, useState } from 'react';
+import './app.css';
+import './general.css';
+import Hero from './components/Hero/Hero';
+import Nav from './components/Nav/Nav';
 import { projectsContext } from './context/projects.context';
-import ProjectCard from './components/Project/ProjectCard';
-import ProjectDetail from './components/Project/ProjectDetail';
-import NewProject from './components/Project/NewProject';
+import ProjectCard from './components/Project/Card/ProjectCard';
+import About from './components/About/About';
+import ProjectDetail from './components/Project/Detail/ProjectDetail';
+import ContactMe from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import { Route, Routes, useNavigate } from 'react-router-dom';
-import ProjectIdPage from './pages/ProjectIdPage/ProjectIdPage';
-import AboutMePage from './pages/AboutMePage/AboutMePage';
+import UserAccess from './components/User/UserAccess/UserAccess';
 
-function App() {
-  const { projects, getProjects } = useContext(projectsContext);
+export default function App() {
+  const { projects } = useContext(projectsContext);
   const [showDetail, setShowDetail] = useState(false);
   const [project, setProject] = useState({});
-  const [newProject, setNewProject] = useState(false);
-  const [details, setDetails] = useState('app');
-  const [somethingChange, setSomethingChange] = useState(false);
-  const [isntHome, setIsntHome] = useState(false);
-  const navigate = useNavigate();
+  const [userDash, setUserDash] = useState(false);
 
   const handleClick = (showDetail, project) => {
+    window.scrollTo(0, 0);
     setShowDetail(showDetail);
     setProject(project);
-    window.scrollTo(0, 0);
-    details === 'app' ? setDetails('projectDetail') : setDetails('app');
   };
-
-  const handleNewProject = (newProject) => {
-    setNewProject(newProject);
-    if (newProject === true && details === 'app') setDetails('projectDetail');
-    if (newProject === false && showDetail === false) setDetails('app');
+  const handleAPI = (userDash) => {
+    console.log(userDash);
+    setUserDash(userDash);
   };
-
-  const handleIsntHome = (isntHome) => {
-    setIsntHome(isntHome);
-    navigate('/');
-  };
-  useEffect(() => {
-    getProjects();
-  }, [somethingChange]);
 
   return (
     <>
-      <Navbar
-        handleNewProject={handleNewProject}
-        setIsntHome={setIsntHome}
-        setShowDetail={setShowDetail}
-        setDetails={setDetails}
-      />
-      {!showDetail && !newProject && !isntHome && (
-        <div className='header'>
-          <h1>PORTFOLIO EUGENIO GIMÉNEZ</h1>
-          <h5 className='home--welcome'>
-            Aquí podrás encontrar una lista de todos los proyectos en los que he
-            participado. En cada tarjeta, podrás ver las tecnologías utilizadas
-            en el proyecto, una breve descripción del mismo y un enlace al
-            repositorio correspondiente.
-          </h5>
-        </div>
-      )}
-      {!isntHome && (
-        <>
-          <div>
-            <i className='button__style fa-solid fa-table-list fa-lg'></i>
-            <i className='button__style fa-solid fa-table-cells-large fa-lg'></i>
-          </div>
-          <div className={details}>
-            {!showDetail &&
-              !newProject &&
-              projects.map((project) => (
-                <ProjectCard
-                  key={project._id}
-                  project={project}
-                  handleClick={handleClick}
-                  showDetail={showDetail}
-                />
-              ))}
-            {showDetail && !newProject && (
-              <ProjectDetail
+      <Nav />
+      <main>
+        {!showDetail && !userDash && <Hero />}
+        {!showDetail && !userDash && (
+          <h3 id='section__project__title'>Mis proyectos</h3>
+        )}
+        <div className='card__section__container'>
+          {!showDetail &&
+            !userDash &&
+            projects.map((project, i) => (
+              <ProjectCard
+                key={project._id}
                 project={project}
+                index={i}
                 handleClick={handleClick}
                 showDetail={showDetail}
-                setSomethingChange={setSomethingChange}
-                somethingChange={somethingChange}
               />
-            )}
-            {newProject && (
-              <NewProject
-                setSomethingChange={setSomethingChange}
-                somethingChange={somethingChange}
-                handleNewProject={handleNewProject}
-                newProject={newProject}
-              />
-            )}
-          </div>
-        </>
-      )}
-      <Routes>
-        <Route
-          path={'/:projectId'}
-          element={
-            <ProjectIdPage
-              projects={projects}
-              handleIsntHome={handleIsntHome}
-              isntHome={isntHome}
-              setIsntHome={setIsntHome}
-              setSomethingChange={setSomethingChange}
-              somethingChange={somethingChange}
-            />
-          }
-        />
-        <Route
-          path={'/aboutme'}
-          element={
-            <AboutMePage
-              handleIsntHome={handleIsntHome}
-              isntHome={isntHome}
-              setIsntHome={setIsntHome}
-            />
-          }
-        />
-        <Route
-          path={'/'}
-          element={
-            <Footer
-              handleNewProject={handleNewProject}
-              newProject={newProject}
-            />
-          }
-        />
-      </Routes>
+            ))}
+        </div>
+        {!showDetail && !userDash && <About />}
+        {!showDetail && !userDash && <ContactMe />}
+        {showDetail && !userDash && (
+          <ProjectDetail
+            project={project}
+            showDetail={showDetail}
+            handleClick={handleClick}
+          />
+        )}
+        {!showDetail && userDash && (
+          <UserAccess handleAPI={handleAPI} userDash={userDash} />
+        )}
+      </main>
+      <Footer handleAPI={handleAPI} userDash={userDash} />
     </>
   );
 }
-
-export default App;

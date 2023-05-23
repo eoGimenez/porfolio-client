@@ -2,7 +2,15 @@ import axios from 'axios';
 
 export default class ProjectsService {
   constructor() {
-    this.API_URL = import.meta.env.VITE_API_URL;
+    this.API_URL = `${import.meta.env.VITE_API_URL}`;
+    // this.API_URL.interceptors.request.use((config) => {
+    //   const storedToken = localStorage.getItem('authToken');
+
+    //   if (storedToken) {
+    //     config.headers = { Authorisation: `Bearer ${storedToken}` };
+    //   }
+    //   return config;
+    // });
   }
 
   getProjects() {
@@ -21,10 +29,8 @@ export default class ProjectsService {
     return axios.put(`${this.API_URL}/${projId}/edit`, project);
   }
 
-  deleteProject(projId, ownCode) {
-    return axios.delete(`${this.API_URL}/${projId}/delete`, {
-      data: ownCode,
-    });
+  deleteProject(projId) {
+    return axios.delete(`${this.API_URL}/${projId}/delete`);
   }
 
   uploadFile(file) {
