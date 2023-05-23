@@ -1,3 +1,10 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
 #navbar__togg {
   border: none;
   box-shadow: none;
@@ -5,10 +12,9 @@
 
 .nav__custom {
   background-color: var(--primary--color);
-  padding: 1.4rem 0;
+  padding: 1rem 0;
 }
 .navbar-nav {
-  padding-top: 1rem;
   font-size: 1.2rem;
   text-transform: uppercase;
   gap: 1rem;
@@ -35,3 +41,5 @@
   border-radius: 9px;
   box-shadow: inset 0 0 0.9rem var(--shadow--black);
 }
+
+

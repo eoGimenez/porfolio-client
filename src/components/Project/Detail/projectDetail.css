@@ -6,8 +6,6 @@
   display: grid;
   gap: 2.4rem;
 }
-.project__body {
-}
 .project__title {
   font-size: 3rem;
   text-align: center;
@@ -27,6 +25,26 @@
 }
 .project__img {
   margin-bottom: 1.6rem;
-  max-width: 100%;
+  max-width: 75rem;
+  width: 100%;
   border-radius: 11px;
+}
+
+@media (min-width: 44em) {
+  .project__body p {
+    max-width: 45ch;
+    margin-inline: auto;
+  }
+}
+@media (min-width: 59em) {
+  .project__img {
+    max-width: 60rem;
+  }
+}
+@media (min-width: 75em) {
+  .project__conteiner {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 4.8rem;
+  }
+
 }

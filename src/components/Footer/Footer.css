@@ -33,13 +33,11 @@
 }
 .footer__heading {
   font-size: 1.4rem;
-  /* text-align: center; */
   text-transform: uppercase;
   line-height: 1.4;
   font-weight: 500;
   color: var(--darker--primary);
   letter-spacing: -0.02rem;
-  /* display: none; */
 }
 
 @media (min-width: 34em) {

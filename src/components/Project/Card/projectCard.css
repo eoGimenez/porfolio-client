@@ -71,18 +71,17 @@
     margin-bottom: 6.4rem;
   }
   .card__conteiner {
-    max-width: 75rem;
+    max-width: 80rem;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    row-gap: 1.2rem;
   }
+  .card__project {
+    grid-column: 2 / -1;
+  }
+
   .card__img {
     max-height: 48rem;
-  }
-  .left__side {
-    margin-right: auto;
-    margin-left: 7rem;
-  }
-  .rigth__side {
-    margin-left: auto;
-    margin-right: 7rem;
   }
   .card__title {
     font-size: 3.6rem;
@@ -108,6 +107,29 @@
     max-width: 45ch;
     margin-inline: auto;
     -webkit-line-clamp: 6;
+  }
+  .card__conteiner .link__github {
+    grid-column: 1/-1;
+  }
+}
+@media (min-width: 75em) {
+  .card__conteiner {
+    max-width: 80rem;
+  }
+  .left__side {
+    margin-right: auto;
+    margin-left: 1rem;
+  }
+  .rigth__side {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+  .card__conteiner .link__github {
+    grid-column: 1/-1;
+    opacity: 0;
+  }
+  .card__conteiner:hover .link__github {
+    opacity: 1;
   }
 }
 /* .img__container {
