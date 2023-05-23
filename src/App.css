@@ -54,7 +54,7 @@ h5 {
   font-weight: 600;
   color: var(--primary--font);
   letter-spacing: -0.09rem;
-  padding-top: 5.2rem;
+  padding: 5.2rem 0 0 1rem;
   margin-bottom: 2.2rem;
 }
 
@@ -79,5 +79,8 @@ h5 {
     max-width: 140rem;
     margin-inline: auto;
     padding-inline: 3.2rem;
+  }
+  #section__project__title {
+    padding-left: 0;
   }
 }
