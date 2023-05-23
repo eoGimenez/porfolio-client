@@ -100,4 +100,7 @@
   #section__contact {
     max-width: 75rem;
   }
+  .btn__form {
+    justify-self: center;
+  }
 }
