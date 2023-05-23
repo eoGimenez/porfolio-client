@@ -1,4 +1,4 @@
-import './contact.css';
+import './Contact.css';
 import emailjs from '@emailjs/browser';
 import { Link } from 'react-router-dom';
 import { useRef, useState } from 'react';

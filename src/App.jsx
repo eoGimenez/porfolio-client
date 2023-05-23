@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react';
-import './app.css';
-import './general.css';
+import './App.css';
+import './General.css';
 import Hero from './components/Hero/Hero';
 import Nav from './components/Nav/Nav';
 import { projectsContext } from './context/projects.context';

@@ -1,5 +1,5 @@
 // import { useEffect } from 'react';
-import './hero.css';
+import './Hero.css';
 import '../../App.css';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';

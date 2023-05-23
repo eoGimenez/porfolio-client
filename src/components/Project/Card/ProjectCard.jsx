@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './projectCard.css';
+import './ProjectCard.css';
 import { useEffect, useState } from 'react';
 
 export default function ProjectCard({
