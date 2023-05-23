@@ -1,4 +1,4 @@
-import './userAccess.css';
+import './UserAccess.css';
 import { AuthContext } from '../../../context/auth.context';
 import AuthService from '../../../services/auth.service';
 import { useContext, useState } from 'react';
