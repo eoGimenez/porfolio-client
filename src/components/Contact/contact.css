@@ -10,7 +10,7 @@
   display: flex;
   justify-content: center;
   gap: 1.6rem;
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
 }
 .link__my__github,
 .link__linkedin {

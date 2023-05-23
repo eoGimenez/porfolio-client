@@ -67,12 +67,8 @@ export default function Footer({ handleAPI, userDash }) {
                 Panel API
               </Link>
             </li>
-            <li className='link'>
-						Copryright &copy; 2023
-            </li>
-            <li className='link'>
-              by Eugenio Giménez
-            </li>
+            <li className='link'>Copryright &copy; 2023</li>
+            <li className='link'>by Eugenio Giménez</li>
           </ul>
         </div>
       </div>
