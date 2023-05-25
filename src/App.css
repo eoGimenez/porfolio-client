@@ -84,3 +84,9 @@ h5 {
     padding-left: 0;
   }
 }
+
+/* @media (min-width: 94em) {
+  main {
+    width: 140rem;
+  }
+} */

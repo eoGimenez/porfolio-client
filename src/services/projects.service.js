@@ -25,7 +25,7 @@ export default class ProjectsService {
   }
 
   getOneProject(projId) {
-    return axios.get(`${this.API_URL}/${projId}`); 
+    return axios.get(`${this.API_URL}/${projId}`);
   }
 
   addProject(project) {

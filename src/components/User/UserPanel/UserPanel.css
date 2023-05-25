@@ -1,9 +1,39 @@
-table {
-  margin-top: 10rem;
+.section__dashboard {
+  display: grid;
 }
-
+table {
+  font-size: 1.8rem;
+  margin: 10rem auto 0;
+  max-width: 60rem;
+}
 th,
 td {
-  border: 1px solid black;
-  text-align:left;
+  font-weight: 500;
+  text-align: left;
+  margin-right: 1rem;
+}
+
+th {
+  padding-right: 1.2rem;
+}
+.link__edit,
+.link__delete {
+  font-size: inherit;
+}
+
+.handle__newproject {
+  font-size: 2.4rem;
+  margin: 3.2rem auto 0;
+}
+
+@media (min-width: 75em) {
+  .section__dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem;
+  }
+  .handle__newproject {
+    align-self: center;
+    justify-self: center;
+  }
 }

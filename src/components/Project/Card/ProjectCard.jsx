@@ -23,18 +23,7 @@ export default function ProjectCard({
             className='card__img'
             src={project.image}
             alt={'Imagen representativa del proyecto' + project.title}
-          />
-          <img
-            className='card__img'
-            src={project.image}
-            alt={'Imagen representativa del proyecto' + project.title}
-          />
-          <img
-            className='card__img'
-            src={project.image}
-            alt={'Imagen representativa del proyecto' + project.title}
-          />
-       
+          />    
         </div>
         <div
           className='card__project'

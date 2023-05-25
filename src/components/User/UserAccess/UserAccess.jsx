@@ -1,23 +1,26 @@
 import './UserAccess.css';
-import { useField } from '../../../Hooks/useField';
-import { useLogin } from '../../../Hooks/useLogin';
-import { useSignup } from '../../../Hooks/useSignup';
+import { useField } from '../../../hooks/useField';
+import { useLogin } from '../../../hooks/useLogin';
+import { useSignup } from '../../../hooks/useSignup';
 import { useState } from 'react';
 
 export default function UserAccess() {
-  const userName = useField({ type: 'text' });
-  const password = useField({ type: 'password' });
-  const passwordRe = useField({ type: 'password' });
-  const email = useField({ type: 'email' });
-  const ownCode = useField({ type: 'password' });
+  const userName = useField({ type: 'text', field: '' });
+  const password = useField({ type: 'password', field: '' });
+  const passwordRe = useField({ type: 'password', field: '' });
+  const email = useField({ type: 'email', field: '' });
+  const ownCode = useField({ type: 'password', field: '' });
   const [registered, setRegistered] = useState(true);
-  const { handleLogin } = useLogin({ email, password });
+  const { handleLogin } = useLogin({
+    email: email.value,
+    password: password.value,
+  });
   const { handleSignup } = useSignup({
-    email,
-    password,
-    passwordRe,
-    userName,
-    ownCode,
+    email: email.value,
+    password: password.value,
+    passwordRe: passwordRe.value,
+    userName: userName.value,
+    ownCode: ownCode.value,
   });
 
   return (
@@ -41,7 +44,9 @@ export default function UserAccess() {
                 <input placeholder='Password' {...password} required />
               </fieldset>
               <button className='btnn btn__form'>Log in</button>
-              <p onClick={() => setRegistered(!registered)}>Registrate!</p>
+              <p onClick={() => setRegistered(!registered)}>
+                Registrate!
+              </p>
             </form>
           </div>
         </section>
@@ -84,7 +89,9 @@ export default function UserAccess() {
                 />
               </fieldset>
               <button className='btnn btn__form'>Crear usuario</button>
-              <p onClick={() => setRegistered(!registered)}>Tengo usuario!</p>
+              <p onClick={() => setRegistered(!registered)}>
+                Tengo usuario!
+              </p>
             </form>
           </div>
         </section>

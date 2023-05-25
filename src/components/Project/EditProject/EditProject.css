@@ -1,0 +1,40 @@
+.section__dashboard {
+  grid-template-columns: 1fr;
+}
+.section__edit {
+  margin-top: 5rem;
+}
+.edit__form {
+  font-size: 1.6rem;
+  display: grid;
+  gap: 1.6rem;
+}
+.edit__form fieldset {
+  /* max-width: 35rem; */
+  margin: 0 3rem;
+}
+
+.edit__form input,
+.edit__form textarea {
+  font-family: inherit;
+  color: inherit;
+  width: 100%;
+  padding: 1.2rem;
+  border: none;
+  background-color: var(--most--lighter);
+  border-radius: 9px;
+  resize: none;
+}
+.edit__form textarea {
+  height: 10rem;
+}
+.edit__form .btn__form {
+  justify-self: center;
+}
+
+@media (min-width: 20em) {
+  .edit__form fieldset {
+    width: 35rem;
+    margin-inline: auto;
+  }
+}

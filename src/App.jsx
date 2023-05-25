@@ -56,9 +56,7 @@ export default function App() {
             handleClick={handleClick}
           />
         )}
-        {!showDetail && userDash && (
-          <UserAuth handleAPI={handleAPI} userDash={userDash} />
-        )}
+        {!showDetail && userDash && <UserAuth projects={projects} />}
       </main>
       <Footer handleAPI={handleAPI} userDash={userDash} />
     </>

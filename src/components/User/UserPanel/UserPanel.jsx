@@ -1,46 +1,53 @@
-import { useContext, useState } from 'react';
-import { projectsContext } from '../../../context/projects.context';
+import { useState } from 'react';
 import './UserPanel.css';
-import { useDelete } from '../../../Hooks/useDelete';
+import { useDelete } from '../../../hooks/useDelete';
+import EditProject from '../../Project/EditProject/EditProject';
 
-export default function UserPanel() {
-  const { projects } = useContext(projectsContext);
-  const [editing, setEditing] = useState(false);
-  const { handleDelete } = useDelete({ projectId: '' });
+export default function UserPanel({ projects }) {
+  const [project, setProject] = useState();
+  const [adding, setAdding] = useState(false);
+  const { handleDelete } = useDelete('');
 
-  const handleEdit = () => {
-    setEditing(!editing);
+  const handleEdit = (project) => {
+    setProject(project);
+  };
+
+  const handleNewProject = () => {
+    setAdding(!adding);
   };
 
   return (
-    <>
-      {!editing && (
-        <table>
-          <thead>
-            <tr>
-              <th>Project name</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          {projects.map((project) => (
-            <tbody key={project._id}>
-              <tr>
-                <th>{project.title}</th>
-                <td className='btn link__edit' onClick={handleEdit}>
-                  Edit
-                </td>
-                <td
-                  className='btn link__delete'
-                  onClick={() => handleDelete({ projectId: project._id })}
-                >
-                  Delete
-                </td>
-              </tr>
-            </tbody>
-          ))}
-        </table>
+    <section className='section__dashboard'>
+      {!project && !adding && (
+        <>
+          <table>
+            {projects.map((project) => (
+              <tbody key={project._id}>
+                <tr>
+                  <th>{project.title}</th>
+                  <td
+                    className='btn link__edit'
+                    onClick={() => handleEdit(project)}
+                  >
+                    Edit
+                  </td>
+                  <td
+                    className='btn link__delete'
+                    onClick={() => handleDelete(project._id)}
+                  >
+                    Delete
+                  </td>
+                </tr>
+              </tbody>
+            ))}
+          </table>
+
+          <h3 className='handle__newproject' onClick={handleNewProject}>
+            Add new Project
+          </h3>
+        </>
       )}
-    </>
+      {project && !adding && <EditProject project={project} />}
+    </section>
   );
 }

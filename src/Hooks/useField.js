@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-export function useField({ type }) {
-  const [value, setValue] = useState('');
+export function useField({ type, field }) {
+  const [value, setValue] = useState(field);
 
   const onChange = (e) => {
     setValue(e.target.value);
