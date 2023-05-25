@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
-  const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
+  const [bounce, setBounce] = useState({ github: '', linkedin: '' });
   /*   useEffect(() => {
     setIsntHome(true);
   }, []); */
@@ -21,19 +21,25 @@ export default function Hero(/* { handleIsntHome, isntHome, setIsntHome } */) {
               className='link__my__github'
               to='https://github.com/eoGimenez'
               onMouseEnter={() => {
-                setBounce('fa-brands fa-github fa-xl fa-bounce');
+                setBounce({ ...bounce, github: ' fa-bounce' });
               }}
-              onMouseLeave={() => setBounce('fa-brands fa-github fa-xl')}
+              onMouseLeave={() => setBounce({ ...bounce, github: ' ' })}
               target='_blank'
             >
-              <i className={bounce}></i>
+              <i className={'fa-brands fa-github fa-xl' + bounce.github}></i>
             </Link>
             <Link
               className='link__linkedin'
               to='https://www.linkedin.com/in/eogimenez/'
+              onMouseEnter={() => {
+                setBounce({ ...bounce, linkedin: ' fa-bounce' });
+              }}
+              onMouseLeave={() => setBounce({ ...bounce, linkedin: ' ' })}
               target='_blank'
             >
-              <i className='fa-brands fa-linkedin fa-lg'></i>{' '}
+              <i
+                className={'fa-brands fa-linkedin fa-lg' + bounce.linkedin}
+              ></i>{' '}
             </Link>
           </div>
         </div>

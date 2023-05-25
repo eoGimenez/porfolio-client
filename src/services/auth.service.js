@@ -4,14 +4,21 @@ export default class AuthService {
     this.API_URL = axios.create({
       baseURL: `${import.meta.env.VITE_API_URL}/auth`,
     });
-    this.API_URL.interceptors.request.use((config) => {
-      const storedToken = localStorage.getItem('authToken');
+    this.API_URL.interceptors.request.use(
+      (config) => {
+        const storedToken = localStorage.getItem('authToken');
 
-      if (storedToken) {
-        config.headers = { Authorisation: `Bearer ${storedToken}` };
+        if (storedToken) {
+          // config.headers = { Authorisation: `Bearer ${storedToken}` }; revisar la logica y funcion
+          // config.headers['Authorization'] = `Bearer ${token}` dicen que es asi ?
+          config.headers.Autorisation = `Bearer ${storedToken}`;
+        }
+        return config;
+      },
+      (error) => {
+        Promise.reject(error);
       }
-      return config;
-    });
+    );
   }
 
   signUp(req) {

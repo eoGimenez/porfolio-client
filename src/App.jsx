@@ -23,7 +23,6 @@ export default function App() {
     setProject(project);
   };
   const handleAPI = (userDash) => {
-    console.log(userDash);
     setUserDash(userDash);
   };
 
