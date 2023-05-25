@@ -9,7 +9,7 @@ import About from './components/About/About';
 import ProjectDetail from './components/Project/Detail/ProjectDetail';
 import ContactMe from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import UserAccess from './components/User/UserAccess/UserAccess';
+import UserAuth from './components/User/UserAuth';
 
 export default function App() {
   const { projects } = useContext(projectsContext);
@@ -57,7 +57,7 @@ export default function App() {
           />
         )}
         {!showDetail && userDash && (
-          <UserAccess handleAPI={handleAPI} userDash={userDash} />
+          <UserAuth handleAPI={handleAPI} userDash={userDash} />
         )}
       </main>
       <Footer handleAPI={handleAPI} userDash={userDash} />

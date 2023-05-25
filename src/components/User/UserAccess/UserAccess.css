@@ -46,3 +46,10 @@ fieldset:last-of-type {
 }
 .message__form {
 }
+
+@media (min-width: 62.07em) {
+  .section__signup,
+  .section__login {
+    width: 50rem;
+  }
+}

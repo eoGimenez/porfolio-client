@@ -1,67 +1,35 @@
 import './UserAccess.css';
-import { AuthContext } from '../../../context/auth.context';
-import AuthService from '../../../services/auth.service';
-import { useContext, useState } from 'react';
 import { useField } from '../../../Hooks/useField';
+import { useLogin } from '../../../Hooks/useLogin';
+import { useSignup } from '../../../Hooks/useSignup';
+import { useState } from 'react';
 
-export default function UserAccess({ handleAPI, userDash }) {
-  const authService = new AuthService();
+export default function UserAccess() {
   const userName = useField({ type: 'text' });
   const password = useField({ type: 'password' });
   const passwordRe = useField({ type: 'password' });
   const email = useField({ type: 'email' });
   const ownCode = useField({ type: 'password' });
-  const { isAuthenticated, storeToken } = useContext(AuthContext);
   const [registered, setRegistered] = useState(true);
+  const { handleLogin } = useLogin({ email, password });
+  const { handleSignup } = useSignup({
+    email,
+    password,
+    passwordRe,
+    userName,
+    ownCode,
+  });
 
-  const handleSignup = (e) => {
-    authService
-      .signUp({
-        email,
-        password,
-        passwordRe,
-        userName,
-        ownCode,
-      })
-      .then((response) => response)
-      .catch((err) => {
-        console.log(err.response.data.messageError);
-      });
-    authService
-      .login({
-        email,
-        password,
-      })
-      .then((response) => {
-        storeToken(response.data.authToken);
-        isAuthenticated();
-      })
-      .catch((err) => {
-        console.log(err.response.data.messageError);
-      });
-  };
-
-  const handleLogin = (e) => {
-    authService
-      .login({
-        email,
-        password,
-      })
-      .then((response) => {
-        storeToken(response.data.authToken);
-        isAuthenticated();
-      })
-      .catch((err) => {
-        console.log(err.response.data.messageError);
-      });
-  };
   return (
     <>
       {registered && (
         <section className='section__login'>
           <div className='container'>
             <h3 className='login__header'>Ingrese sus credenciales</h3>
-            <form className='login__form' onSubmit={handleLogin}>
+            <form
+              className='login__form'
+              onSubmit={() => handleLogin({ email, password })}
+            >
               <fieldset>
                 <input
                   placeholder='e.paramos@ejemplo.com'
@@ -82,7 +50,12 @@ export default function UserAccess({ handleAPI, userDash }) {
         <section className='section__signup'>
           <div className='container'>
             <h3 className='signup__header'>Registre su usuario</h3>
-            <form className='signup__form' onSubmit={handleSignup}>
+            <form
+              className='signup__form'
+              onSubmit={() =>
+                handleSignup({ email, password, passwordRe, userName, ownCode })
+              }
+            >
               <fieldset>
                 <input placeholder='Ej: EvaristoP' {...userName} required />
               </fieldset>
