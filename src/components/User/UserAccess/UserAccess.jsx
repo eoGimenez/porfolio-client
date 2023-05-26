@@ -1,7 +1,7 @@
 import './UserAccess.css';
-import { useField } from '../../../hooks/useField';
-import { useLogin } from '../../../hooks/useLogin';
-import { useSignup } from '../../../hooks/useSignup';
+import { useField } from '../../../hook/useField';
+import { useLogin } from '../../../hook/useLogin';
+import { useSignup } from '../../../hook/useSignup';
 import { useState } from 'react';
 
 export default function UserAccess() {
