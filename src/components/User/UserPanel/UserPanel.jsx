@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './UserPanel.css';
 import { useDelete } from '../../../hooks/useDelete';
 import EditProject from '../../Project/EditProject/EditProject';
+import NewProject from '../../Project/NewProject/NewProject';
 
 export default function UserPanel({ projects }) {
   const [project, setProject] = useState();
@@ -48,6 +49,7 @@ export default function UserPanel({ projects }) {
         </>
       )}
       {project && !adding && <EditProject project={project} />}
+      {!project && adding && <NewProject />}
     </section>
   );
 }

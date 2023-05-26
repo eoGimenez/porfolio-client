@@ -28,7 +28,7 @@ th {
 
 @media (min-width: 75em) {
   .section__dashboard {
-    display: grid;
+    /* display: grid; */
     grid-template-columns: 1fr 1fr;
     gap: 2.4rem;
   }

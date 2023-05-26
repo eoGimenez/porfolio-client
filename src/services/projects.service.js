@@ -36,8 +36,10 @@ export default class ProjectsService {
     return axios.put(`${this.API_URL}/${projId}/edit`, project); // hay que sacar el "/edit"
   }
 
-  deleteProject(projId) {
-    return axios.delete(`${this.API_URL}/${projId}/delete`); // hay que sacar el "/delete"
+  deleteProject(projId /* ownCode */) {
+    return axios.delete(
+      `${this.API_URL}/${projId}/delete` /* , { data: ownCode } */
+    ); // hay que sacar el "/delete"
   }
 
   uploadFile(file) {

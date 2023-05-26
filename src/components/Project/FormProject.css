@@ -1,21 +1,25 @@
 .section__dashboard {
   grid-template-columns: 1fr;
 }
-.section__edit {
+.section__edit,
+.section__project {
   margin-top: 5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
-.edit__form {
+.project__form {
   font-size: 1.6rem;
   display: grid;
   gap: 1.6rem;
 }
-.edit__form fieldset {
+.project__form fieldset {
   /* max-width: 35rem; */
   margin: 0 3rem;
 }
 
-.edit__form input,
-.edit__form textarea {
+.project__form input,
+.project__form textarea {
   font-family: inherit;
   color: inherit;
   width: 100%;
@@ -25,15 +29,20 @@
   border-radius: 9px;
   resize: none;
 }
-.edit__form textarea {
+.project__form textarea {
   height: 10rem;
 }
-.edit__form .btn__form {
+.project__form .btn__form {
   justify-self: center;
+}
+.fieldset__tech {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @media (min-width: 20em) {
-  .edit__form fieldset {
+  .project__form fieldset {
     width: 35rem;
     margin-inline: auto;
   }
