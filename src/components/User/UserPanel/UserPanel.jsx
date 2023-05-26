@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './UserPanel.css';
-import { useDelete } from '../../../hooks/useDelete';
+import { useDelete } from '../../../hook/useDelete';
 import EditProject from '../../Project/EditProject/EditProject';
 import NewProject from '../../Project/NewProject/NewProject';
 
