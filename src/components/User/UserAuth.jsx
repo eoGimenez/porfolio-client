@@ -9,8 +9,8 @@ export default function UserAuth({ projects }) {
 
   return (
     <section className='section__user'>
-      {!isLoggedIn && <UserAccess />}
-      {isLoggedIn && <UserPanel projects={projects} />}
+      {isLoggedIn && <UserAccess />}
+      {!isLoggedIn && <UserPanel projects={projects} />}
     </section>
   );
 }

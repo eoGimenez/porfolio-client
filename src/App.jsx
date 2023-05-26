@@ -24,7 +24,7 @@ export default function App() {
   };
   const handleAPI = (userDash) => {
     setUserDash(userDash);
-    setShowDetail(false)
+    setShowDetail(false);
   };
 
   return (

@@ -44,9 +44,7 @@ export default function UserAccess() {
                 <input placeholder='Password' {...password} required />
               </fieldset>
               <button className='btnn btn__form'>Log in</button>
-              <p onClick={() => setRegistered(!registered)}>
-                Registrate!
-              </p>
+              <p onClick={() => setRegistered(!registered)}>Registrate!</p>
             </form>
           </div>
         </section>
@@ -89,9 +87,7 @@ export default function UserAccess() {
                 />
               </fieldset>
               <button className='btnn btn__form'>Crear usuario</button>
-              <p onClick={() => setRegistered(!registered)}>
-                Tengo usuario!
-              </p>
+              <p onClick={() => setRegistered(!registered)}>Tengo usuario!</p>
             </form>
           </div>
         </section>
