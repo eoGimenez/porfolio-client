@@ -32,7 +32,7 @@ export default function EditProject({ project }) {
         urlGit: urlGit.value,
         technologies: project.technologies,
         image: image.value,
-        // ownCode: 'm4n0n3gr4',
+        // ownCode: 'm4n0n3cd cligr4',
       })
       .then((result) => {
         getProjects();

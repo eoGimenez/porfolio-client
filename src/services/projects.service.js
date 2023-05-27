@@ -29,6 +29,7 @@ export default class ProjectsService {
   }
 
   addProject(project) {
+    console.log(project);
     return axios.post(`${this.API_URL}/new`, project); // hay que sacar el "/new"
   }
 

@@ -9,30 +9,50 @@ export default function NewProject() {
   const description = useField({ type: 'text', field: '' });
   const secDescription = useField({ type: 'text', field: '' });
   const urlGit = useField({ type: 'text', field: '' });
-  const image = useField({ type: 'text', field: '' });
-  const [technologies, setTechnologies] = useState([]);
+  const [technologiesArr, setTechnologiesArr] = useState([]);
+  const [imageAux, setImageAux] = useState('');
+  const [imageUrl, setImageUrl] = useState([]);
   const [techAux, setTechAux] = useState('');
   const projectService = new ProjectsService();
   const { getProjects } = useContext(projectsContext);
 
   const handleTech = (e) => {
     e.preventDefault();
-    setTechnologies([...technologies, techAux]);
+    setTechnologiesArr([...technologiesArr, techAux]);
     setTechAux('');
   };
 
-  const handleProject = () => {
+  const handleImage = (e) => {
+    const uploadData = new FormData();
+    uploadData.append('image', e.target.files[0]);
+    projectService
+      .uploadFile(uploadData)
+      .then((response) => {
+        console.log(response);
+        setImageAux(response.data.imageUrl);
+      })
+      .catch((err) => console.log('Error while uploading the image: ', err));
+  };
+
+  const handleImages = (e) => {
+    e.preventDefault();
+    setImageUrl([...imageUrl, imageAux]);
+    setImageAux('');
+  };
+
+  const handleProject = (e) => {
     projectService
       .addProject({
         title: title.value,
         description: description.value,
         secDescription: secDescription.value,
         urlGit: urlGit.value,
-        technologies: technologies.value,
-        image: image.value,
-        // ownCode: 'm4n0n3gr4',
+        technologies: technologiesArr,
+        image: imageUrl,
+        ownCode: 'm4n0n3gr4',
       })
       .then((result) => {
+        console.log(result);
         getProjects();
       })
       .catch((err) => console.log(err));
@@ -57,25 +77,30 @@ export default function NewProject() {
         <fieldset>
           <input {...urlGit} required placeholder='URL repositorio' />
         </fieldset>
-        <fieldset>
-          <input {...image} required placeholder='Seleccione una imagen' />
-        </fieldset>
-        {technologies &&
-          technologies.map((tech, i) => (
+        {imageUrl &&
+          imageUrl.map((url, i) => (
+            <fieldset key={i} className='fieldset__tech'>
+              <p>{url}</p>
+            </fieldset>
+          ))}
+        {technologiesArr &&
+          technologiesArr.map((tech, i) => (
             <fieldset key={i} className='fieldset__tech'>
               <p>{tech}</p>
-              <p
-                onClick={() => {
-                  technologies.splice(i, 1);
-                  setTechnologies([...technologies]);
-                }}
-                className='btnn btn__form'
-              >
-                delete
-              </p>
             </fieldset>
           ))}
         <button className='btnn btn__form'>Crear proyecto</button>
+      </form>
+      <form className='project__form' onSubmit={handleImages}>
+        <fieldset>
+          <input
+            type='file'
+            onChange={(e) => {
+              handleImage(e);
+            }}
+          />
+        </fieldset>
+        <button className='btnn btn__form'>Agregar Url</button>
       </form>
       <form className='project__form' onSubmit={handleTech}>
         <fieldset>
