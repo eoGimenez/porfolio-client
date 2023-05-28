@@ -30,17 +30,15 @@ export default class ProjectsService {
 
   addProject(project) {
     console.log(project);
-    return axios.post(`${this.API_URL}/new`, project); // hay que sacar el "/new"
+    return axios.post(`${this.API_URL}`, project);
   }
 
   editProject(projId, project) {
-    return axios.put(`${this.API_URL}/${projId}/edit`, project); // hay que sacar el "/edit"
+    return axios.put(`${this.API_URL}/${projId}`, project);
   }
 
-  deleteProject(projId /* ownCode */) {
-    return axios.delete(
-      `${this.API_URL}/${projId}/delete` /* , { data: ownCode } */
-    ); // hay que sacar el "/delete"
+  deleteProject(projId) {
+    return axios.delete(`${this.API_URL}/${projId}`);
   }
 
   uploadFile(file) {

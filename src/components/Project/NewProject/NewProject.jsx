@@ -22,6 +22,7 @@ export default function NewProject() {
     setTechAux('');
   };
 
+  //  cuando tenga el server el produccion, probar de armar un map para que haga append de todos los archivos.
   const handleImage = (e) => {
     const uploadData = new FormData();
     uploadData.append('image', e.target.files[0]);
@@ -49,7 +50,7 @@ export default function NewProject() {
         urlGit: urlGit.value,
         technologies: technologiesArr,
         image: imageUrl,
-        ownCode: 'm4n0n3gr4',
+        // ownCode: 'm4n0n3gr4',
       })
       .then((result) => {
         console.log(result);
