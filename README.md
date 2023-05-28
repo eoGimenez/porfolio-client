@@ -1,7 +1,7 @@
-# Portfolio - client side ( REFACTORIZANDO HTML & CSS)
+# Portfolio - client side ( Pre produccion nuevo sistema de auth )
 
-(Dentro de la carpeta "AAoldcomponents" en la branch "dev" podras ver los viejos componentes)
-Tambien hay muchos updates en el back-end
+- Dentro de la carpeta "AAoldcomponents" podras ver los viejos componentes
+- Tambien hay muchos updates en el back-end
 
 Aquí pueden encontrar el Front End para generar un portfolio, tener en cuenta que es necesario crear la API.
 
