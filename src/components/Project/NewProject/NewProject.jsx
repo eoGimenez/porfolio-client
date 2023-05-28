@@ -40,8 +40,8 @@ export default function NewProject() {
     setImageUrl([...imageUrl, imageAux]);
     setImageAux('');
   };
-
   const handleProject = (e) => {
+    e.preventDefault();
     projectService
       .addProject({
         title: title.value,

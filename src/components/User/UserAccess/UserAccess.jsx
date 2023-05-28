@@ -11,10 +11,12 @@ export default function UserAccess() {
   const email = useField({ type: 'email', field: '' });
   const ownCode = useField({ type: 'password', field: '' });
   const [registered, setRegistered] = useState(true);
+
   const { handleLogin } = useLogin({
     email: email.value,
     password: password.value,
   });
+
   const { handleSignup } = useSignup({
     email: email.value,
     password: password.value,
@@ -22,17 +24,13 @@ export default function UserAccess() {
     userName: userName.value,
     ownCode: ownCode.value,
   });
-
   return (
     <>
       {registered && (
         <section className='section__login'>
           <div className='container'>
             <h3 className='login__header'>Ingrese sus credenciales</h3>
-            <form
-              className='login__form'
-              onSubmit={() => handleLogin({ email, password })}
-            >
+            <form className='login__form' onSubmit={handleLogin}>
               <fieldset>
                 <input
                   placeholder='e.paramos@ejemplo.com'
@@ -53,12 +51,7 @@ export default function UserAccess() {
         <section className='section__signup'>
           <div className='container'>
             <h3 className='signup__header'>Registre su usuario</h3>
-            <form
-              className='signup__form'
-              onSubmit={() =>
-                handleSignup({ email, password, passwordRe, userName, ownCode })
-              }
-            >
+            <form className='signup__form' onSubmit={handleSignup}>
               <fieldset>
                 <input placeholder='Ej: EvaristoP' {...userName} required />
               </fieldset>

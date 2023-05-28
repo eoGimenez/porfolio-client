@@ -13,17 +13,20 @@ export default function ProjectCard({
   useEffect(() => {
     index % 2 === 0 ? setSide('left__side') : setSide('rigth__side');
   }, []);
-
+  
   return (
     <section className='card__section'>
       {/* {!showDetail && ( */}
       <div className={'card__conteiner ' + side}>
         <div className='img__container'>
-          <img
-            className='card__img'
-            src={project.image}
-            alt={'Imagen representativa del proyecto' + project.title}
-          />
+          {project.image.map((image, i) => (
+            <img
+              key={i}
+              className='card__img'
+              src={image}
+              alt={'Imagen representativa del proyecto' + project.title}
+            />
+          ))}
         </div>
         <div
           className='card__project'

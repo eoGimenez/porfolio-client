@@ -12,7 +12,7 @@ export default function EditProject({ project }) {
     field: project.secDescription,
   });
   const urlGit = useField({ type: 'text', field: project.urlGit });
-  const image = useField({ type: 'text', field: project.image });
+  // const [image, setImage] = useState(project.image);
   const [techAux, setTechAux] = useState('');
   const projectService = new ProjectsService();
   const { getProjects } = useContext(projectsContext);
@@ -23,7 +23,8 @@ export default function EditProject({ project }) {
     setTechAux('');
   };
 
-  const handleEdit = () => {
+  const handleEdit = (e) => {
+    e.preventDefault();
     projectService
       .editProject(project._id, {
         title: title.value,
@@ -31,7 +32,7 @@ export default function EditProject({ project }) {
         secDescription: secDescription.value,
         urlGit: urlGit.value,
         technologies: project.technologies,
-        image: image.value,
+        image: project.image,
         // ownCode: 'm4n0n3cd cligr4',
       })
       .then((result) => {
@@ -55,9 +56,9 @@ export default function EditProject({ project }) {
         <fieldset>
           <input {...urlGit} required />
         </fieldset>
-        <fieldset>
+        {/* <fieldset>
           <input {...image} required />
-        </fieldset>
+        </fieldset> */}
         {project.technologies.map((tech, i) => (
           <fieldset key={i} className='fieldset__tech'>
             <p>{tech}</p>

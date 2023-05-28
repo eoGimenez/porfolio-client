@@ -30,7 +30,6 @@ function AuthProviderWrapper({ children }) {
       authService
         .verify()
         .then((response) => {
-          console.log('que tenemos de respuesta en el verify: ', response.data);
           setIsLoggedIn(true);
           setUser(response.data);
           setTimeout(() => {

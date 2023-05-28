@@ -85,8 +85,8 @@ h5 {
   }
 }
 
-/* @media (min-width: 94em) {
+@media (min-width: 94em) {
   main {
     width: 140rem;
   }
-} */
+}

@@ -9,9 +9,7 @@ export default class AuthService {
         const storedToken = localStorage.getItem('authToken');
 
         if (storedToken) {
-          // config.headers = { Authorisation: `Bearer ${storedToken}` }; revisar la logica y funcion
-          // config.headers['Authorization'] = `Bearer ${token}` dicen que es asi ?
-          config.headers.Autorisation = `Bearer ${storedToken}`;
+          config.headers = { Authorization: `Bearer ${storedToken}` };
         }
         return config;
       },

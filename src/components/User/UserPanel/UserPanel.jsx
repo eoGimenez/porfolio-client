@@ -3,11 +3,13 @@ import './UserPanel.css';
 import { useDelete } from '../../../hook/useDelete';
 import EditProject from '../../Project/EditProject/EditProject';
 import NewProject from '../../Project/NewProject/NewProject';
+import { useLogout } from '../../../hook/useLogout';
 
 export default function UserPanel({ projects }) {
   const [project, setProject] = useState();
   const [adding, setAdding] = useState(false);
   const { handleDelete } = useDelete('');
+  const { handleLogout } = useLogout();
 
   const handleEdit = (project) => {
     setProject(project);
@@ -46,6 +48,7 @@ export default function UserPanel({ projects }) {
           <h3 className='handle__newproject' onClick={handleNewProject}>
             Add new Project
           </h3>
+          <h3 onClick={handleLogout}>LogOut</h3>
         </>
       )}
       {project && !adding && <EditProject project={project} />}

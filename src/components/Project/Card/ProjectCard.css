@@ -19,6 +19,10 @@
   padding: 2.4rem 2.4rem 1.2rem;
   cursor: pointer;
 }
+.img__container :not(:first-child) {
+  display: none;
+}
+
 .card__img {
   width: 100%;
   max-height: 31rem;
@@ -150,6 +154,27 @@
     object-fit: fill;
     max-width: 100%;
   } */
+  .img__container :not(:first-child){
+    display: unset;
+  }
+  /* .img__container {
+    display: flex;
+    gap: 0.3rem;
+    justify-content: center;
+  }
+  .card__img {
+    max-width: 7rem;
+    width: 100%;
+    height: 48rem;
+    object-fit: cover;
+    overflow: hidden;
+    transition: max-width 0.5s ease-out;
+    border-radius: 9px;
+  }
+  .img__container .card__img:hover {
+    object-fit: fill;
+    max-width: 100%;
+  } */
 }
 /* .img__container {
   display: flex;
@@ -169,3 +194,9 @@
   object-fit: fill;
   max-width: 100%;
 } */
+
+@media (min-width: 94em) {
+  .card__conteiner {
+    max-width: 100rem;
+  }
+}

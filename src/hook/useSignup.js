@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth.context';
 export function useSignup({ email, password, passwordRe, userName, ownCode }) {
   const { isAuthenticated, storeToken } = useContext(AuthContext);
   const authService = new AuthService();
-  const handleSignup = (e) => {
+  const handleSignup = () => {
     authService
       .signUp({
         email,

@@ -7,6 +7,7 @@ export function useLogin({ email, password }) {
   const authService = new AuthService();
 
   const handleLogin = (e) => {
+    e.preventDefault();
     authService
       .login({
         email,
