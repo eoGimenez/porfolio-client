@@ -21,7 +21,8 @@ th {
   font-size: inherit;
 }
 
-.handle__newproject {
+.handle__newproject,
+.handle__logout {
   font-size: 2.4rem;
   margin: 3.2rem auto 0;
 }
@@ -32,7 +33,8 @@ th {
     grid-template-columns: 1fr 1fr;
     gap: 2.4rem;
   }
-  .handle__newproject {
+  .handle__newproject,
+  .handle__logout {
     align-self: center;
     justify-self: center;
   }

@@ -1,8 +1,7 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useField } from '../../../hook/useField';
-import ProjectsService from '../../../services/projects.service';
 import '../FormProject.css';
-import { projectsContext } from '../../../context/projects.context';
+import { useEdit } from '../../../hook/useEditProject';
 
 export default function EditProject({ project }) {
   const title = useField({ type: 'text', field: project.title });
@@ -14,8 +13,6 @@ export default function EditProject({ project }) {
   const urlGit = useField({ type: 'text', field: project.urlGit });
   // const [image, setImage] = useState(project.image);
   const [techAux, setTechAux] = useState('');
-  const projectService = new ProjectsService();
-  const { getProjects } = useContext(projectsContext);
 
   const handleTech = (e) => {
     e.preventDefault();
@@ -23,23 +20,15 @@ export default function EditProject({ project }) {
     setTechAux('');
   };
 
-  const handleEdit = (e) => {
-    e.preventDefault();
-    projectService
-      .editProject(project._id, {
-        title: title.value,
-        description: description.value,
-        secDescription: secDescription.value,
-        urlGit: urlGit.value,
-        technologies: project.technologies,
-        image: project.image,
-        // ownCode: 'm4n0n3cd cligr4',
-      })
-      .then((result) => {
-        getProjects();
-      })
-      .catch((err) => console.log(err));
-  };
+  const { handleEdit } = useEdit({
+    projectId: project._id,
+    title: title.value,
+    description: description.value,
+    secDescription: secDescription.value,
+    urlGit: urlGit.value,
+    technologies: project.technologies,
+    image: project.image,
+  });
 
   return (
     <section className='section__edit'>

@@ -1,8 +1,8 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import { useField } from '../../../hook/useField';
 import ProjectsService from '../../../services/projects.service';
 import '../FormProject.css';
-import { projectsContext } from '../../../context/projects.context';
+import { useAddProject } from '../../../hook/useAddProject';
 
 export default function NewProject() {
   const title = useField({ type: 'text', field: '' });
@@ -14,7 +14,6 @@ export default function NewProject() {
   const [imageUrl, setImageUrl] = useState([]);
   const [techAux, setTechAux] = useState('');
   const projectService = new ProjectsService();
-  const { getProjects } = useContext(projectsContext);
 
   const handleTech = (e) => {
     e.preventDefault();
@@ -22,7 +21,6 @@ export default function NewProject() {
     setTechAux('');
   };
 
-  //  cuando tenga el server el produccion, probar de armar un map para que haga append de todos los archivos.
   const handleImage = (e) => {
     const uploadData = new FormData();
     uploadData.append('image', e.target.files[0]);
@@ -40,24 +38,15 @@ export default function NewProject() {
     setImageUrl([...imageUrl, imageAux]);
     setImageAux('');
   };
-  const handleProject = (e) => {
-    e.preventDefault();
-    projectService
-      .addProject({
-        title: title.value,
-        description: description.value,
-        secDescription: secDescription.value,
-        urlGit: urlGit.value,
-        technologies: technologiesArr,
-        image: imageUrl,
-        // ownCode: 'm4n0n3gr4',
-      })
-      .then((result) => {
-        console.log(result);
-        getProjects();
-      })
-      .catch((err) => console.log(err));
-  };
+
+  const { handleProject } = useAddProject({
+    title: title.value,
+    description: description.value,
+    secDescription: secDescription.value,
+    urlGit: urlGit.value,
+    technologies: technologiesArr,
+    image: imageUrl,
+  });
 
   return (
     <section className='section__project'>

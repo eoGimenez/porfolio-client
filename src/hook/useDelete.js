@@ -7,11 +7,9 @@ export function useDelete({ projectId }) {
   const { getProjects } = useContext(projectsContext);
 
   const handleDelete = (projectId) => {
-    projectService
-      .deleteProject(projectId, { ownCode: 'm4n0n3gr4' })
-      .then((result) => {
-        getProjects();
-      });
+    projectService.deleteProject(projectId).then((result) => {
+      getProjects();
+    });
   };
 
   return { handleDelete };

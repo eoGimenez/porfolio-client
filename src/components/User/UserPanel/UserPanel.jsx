@@ -48,7 +48,9 @@ export default function UserPanel({ projects }) {
           <h3 className='handle__newproject' onClick={handleNewProject}>
             Add new Project
           </h3>
-          <h3 onClick={handleLogout}>LogOut</h3>
+          <h3 className='handle__logout' onClick={handleLogout}>
+            LogOut
+          </h3>
         </>
       )}
       {project && !adding && <EditProject project={project} />}
