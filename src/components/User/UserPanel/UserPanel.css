@@ -1,9 +1,17 @@
+h4.btn {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--darker--font);
+  letter-spacing: -0.04rem;
+  margin-bottom: 2.4rem;
+}
+
 .section__dashboard {
   display: grid;
 }
 table {
   font-size: 1.8rem;
-  margin: 10rem auto 0;
+  margin: 10rem auto 5rem;
   max-width: 60rem;
 }
 th,
@@ -24,7 +32,7 @@ th {
 .handle__newproject,
 .handle__logout {
   font-size: 2.4rem;
-  margin: 3.2rem auto 0;
+  margin: 0 auto 3.2rem;
 }
 
 @media (min-width: 75em) {

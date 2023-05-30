@@ -26,6 +26,31 @@ html {
   min-height: 100%;
   margin-top: 4rem;
 }
+
+::-webkit-scrollbar {
+  width: 2rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--lighter--primary);
+  /* margin-block: .5rem;
+  border-radius: 100vw; */
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary--color);
+  border-radius: 100vw;
+  border: 0.25rem solid var(--lighter--primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--darker--primary);
+}
+
+@supports (scrollbar-color: red blue) {
+  * {
+    scrollbar-color: var(--primary--color) var(--lighter--primary);
+    scrollbar-width: auto;
+  }
+}
+
 *,
 h1,
 h2,

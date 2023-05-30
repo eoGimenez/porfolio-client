@@ -1,3 +1,11 @@
+h3 {
+  color: var(--darker--font);
+  text-align: center;
+  font-weight: 400;
+  font-size: 2rem;
+  letter-spacing: -0.04rem;
+}
+
 .section__dashboard {
   grid-template-columns: 1fr;
 }
@@ -12,6 +20,7 @@
   font-size: 1.6rem;
   display: grid;
   gap: 1.6rem;
+  margin-bottom: 2.4rem;
 }
 .project__form fieldset {
   /* max-width: 35rem; */
@@ -35,7 +44,8 @@
 .project__form .btn__form {
   justify-self: center;
 }
-.fieldset__tech {
+.fieldset__tech,
+.fieldset__image {
   display: flex;
   justify-content: space-between;
   align-items: center;

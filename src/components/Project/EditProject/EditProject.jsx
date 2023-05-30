@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useField } from '../../../hook/useField';
 import '../FormProject.css';
 import { useEdit } from '../../../hook/useEditProject';
+import { useFile } from '../../../hook/useFile';
 
 export default function EditProject({ project }) {
   const title = useField({ type: 'text', field: project.title });
@@ -11,13 +12,18 @@ export default function EditProject({ project }) {
     field: project.secDescription,
   });
   const urlGit = useField({ type: 'text', field: project.urlGit });
-  // const [image, setImage] = useState(project.image);
   const [techAux, setTechAux] = useState('');
+  const { handleImage, imageAuxil } = useFile();
 
   const handleTech = (e) => {
     e.preventDefault();
     project.technologies.push(techAux);
     setTechAux('');
+  };
+
+  const handleSubmitImage = (e) => {
+    e.preventDefault();
+    project.image.push(imageAuxil);
   };
 
   const { handleEdit } = useEdit({
@@ -45,9 +51,19 @@ export default function EditProject({ project }) {
         <fieldset>
           <input {...urlGit} required />
         </fieldset>
-        {/* <fieldset>
-          <input {...image} required />
-        </fieldset> */}
+        {project.image.map((image, i) => (
+          <fieldset key={i} className='fieldset__image'>
+            <p>{image}</p>
+            <p
+              onClick={() => {
+                project.image.splice(i, 1);
+              }}
+              className='btnn btn__form'
+            >
+              Delete
+            </p>
+          </fieldset>
+        ))}
         {project.technologies.map((tech, i) => (
           <fieldset key={i} className='fieldset__tech'>
             <p>{tech}</p>
@@ -57,13 +73,21 @@ export default function EditProject({ project }) {
               }}
               className='btnn btn__form'
             >
-              delete
+              Delete
             </p>
           </fieldset>
         ))}
         <button className='btnn btn__form'>Actualizar proyecto</button>
       </form>
+      <form className='project__form' onSubmit={handleSubmitImage}>
+        <h3>Agregar imagen</h3>
+        <fieldset>
+          <input type='file' onChange={(e) => handleImage(e)} />
+        </fieldset>
+        <button className='btnn btn__form'>Agregar tecnologia</button>
+      </form>
       <form className='project__form' onSubmit={handleTech}>
+        <h3>Agregar tecnologia</h3>
         <fieldset>
           <input
             type='text'

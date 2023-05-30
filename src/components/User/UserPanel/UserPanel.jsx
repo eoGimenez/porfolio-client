@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import './UserPanel.css';
+import { useState } from 'react';
 import { useDelete } from '../../../hook/useDelete';
 import EditProject from '../../Project/EditProject/EditProject';
 import NewProject from '../../Project/NewProject/NewProject';
@@ -17,6 +17,11 @@ export default function UserPanel({ projects }) {
 
   const handleNewProject = () => {
     setAdding(!adding);
+  };
+
+  const handleHome = () => {
+    setAdding(false);
+    setProject(false);
   };
 
   return (
@@ -45,16 +50,19 @@ export default function UserPanel({ projects }) {
             ))}
           </table>
 
-          <h3 className='handle__newproject' onClick={handleNewProject}>
+          <h3 className='btn handle__newproject' onClick={handleNewProject}>
             Add new Project
           </h3>
-          <h3 className='handle__logout' onClick={handleLogout}>
+          <h3 className='btn handle__logout' onClick={handleLogout}>
             LogOut
           </h3>
         </>
       )}
       {project && !adding && <EditProject project={project} />}
       {!project && adding && <NewProject />}
+      <h4 className='btn' onClick={handleHome}>
+        Go to Panel
+      </h4>
     </section>
   );
 }
