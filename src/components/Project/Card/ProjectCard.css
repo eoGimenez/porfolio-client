@@ -11,7 +11,6 @@
   box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
   border-radius: 11px;
   overflow: hidden;
-  padding: 1.2rem 0;
   background-color: var(--most--lighter);
 
   transition: all 0.3s;
@@ -158,6 +157,7 @@
 }
 @media (min-width: 75em) {
   .card__conteiner {
+    padding: 1.2rem 0;
     max-width: 80rem;
   }
   .left__side {
@@ -208,7 +208,7 @@
     height: 40rem;
     object-fit: cover;
     overflow: hidden;
-    transition: max-width 0.5s ease-out;
+    transition: all 0.3s ease-out;
     border-radius: 9px;
   }
   .img__container .card__img:hover {
