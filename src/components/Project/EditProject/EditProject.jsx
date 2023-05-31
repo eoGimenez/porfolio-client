@@ -35,7 +35,7 @@ export default function EditProject({ project }) {
     technologies: project.technologies,
     image: project.image,
   });
-
+  console.log(urlGit.value)
   return (
     <section className='section__edit'>
       <form className='project__form' onSubmit={handleEdit}>
