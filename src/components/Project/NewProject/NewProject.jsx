@@ -8,9 +8,8 @@ export default function NewProject() {
   const title = useField({ type: 'text', field: '' });
   const description = useField({ type: 'text', field: '' });
   const secDescription = useField({ type: 'text', field: '' });
-  // const urlGit = useField({ type: 'text', field: '' });
-  // const [urlsGit, setUrlsGit] = useState([]);
-  // const [urlGitAux, setUrlGitAux] = useState('');
+  const [urlsGit, setUrlsGit] = useState([]);
+  const [urlGitAux, setUrlGitAux] = useState({ label: '', url: '' });
   const [technologiesArr, setTechnologiesArr] = useState([]);
   const [techAux, setTechAux] = useState('');
   const [imageUrl, setImageUrl] = useState([]);
@@ -27,19 +26,17 @@ export default function NewProject() {
     setImageUrl([...imageUrl, imageAuxil]);
   };
 
-  // Hay que armar el pusher de urlS
-
-  // const handleGitUrl = (e) => {
-  //   e.preventDefault();
-  //   setUrlsGit([...urlsGit, urlGitAux]);
-  //   setUrlGitAux('');
-  // };
+  const handleGitUrl = (e) => {
+    e.preventDefault();
+    setUrlsGit([...urlsGit, urlGitAux]);
+    setUrlGitAux({ label: '', url: '' });
+  };
 
   const { handleProject } = useAddProject({
     title: title.value,
     description: description.value,
     secDescription: secDescription.value,
-    // urlGit: urlsGit,
+    urlGit: urlsGit,
     technologies: technologiesArr,
     image: imageUrl,
   });
@@ -60,9 +57,13 @@ export default function NewProject() {
             placeholder='Segundo parrafo descripción'
           />
         </fieldset>
-        {/* <fieldset>
-          <input {...urlGit} required placeholder='URL repositorio' />
-        </fieldset> */}
+        {urlsGit &&
+          urlsGit.map((git, i) => (
+            <fieldset key={i} className='fieldset__tech'>
+              <p>{git.label}</p>
+              <p>{git.url}</p>
+            </fieldset>
+          ))}
         {imageUrl &&
           imageUrl.map((url, i) => (
             <fieldset key={i} className='fieldset__tech'>
@@ -77,6 +78,7 @@ export default function NewProject() {
           ))}
         <button className='btnn btn__form'>Crear proyecto</button>
       </form>
+      <h3>Agregar imagen</h3>
       <form className='project__form' onSubmit={handleImages}>
         <fieldset>
           <input
@@ -86,9 +88,30 @@ export default function NewProject() {
             }}
           />
         </fieldset>
-        <button className='btnn btn__form'>Agregar Url</button>
+        <button className='btnn btn__form'>Agregar Imagen</button>
+      </form>
+      <form className='project__form' onSubmit={handleGitUrl}>
+        <h3>Agregar url git</h3>
+        <fieldset>
+          <input
+            type='text'
+            value={urlGitAux.label}
+            onChange={(e) =>
+              setUrlGitAux({ ...urlGitAux, label: e.target.value })
+            }
+          />
+          <input
+            type='text'
+            value={urlGitAux.url}
+            onChange={(e) =>
+              setUrlGitAux({ ...urlGitAux, url: e.target.value })
+            }
+          />
+        </fieldset>
+        <button className='btnn btn__form'>Agregar urlGit</button>
       </form>
       <form className='project__form' onSubmit={handleTech}>
+        <h3>Agregar tecnología</h3>
         <fieldset>
           <input
             type='text'

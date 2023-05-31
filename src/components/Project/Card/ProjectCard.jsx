@@ -9,14 +9,22 @@ export default function ProjectCard({
   index,
 }) {
   const [side, setSide] = useState('');
-  const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
+  // const [bounce, setBounce] = useState('fa-brands fa-github fa-lg');
+  const [links, setLinks] = useState('');
   useEffect(() => {
     index % 2 === 0 ? setSide('left__side') : setSide('rigth__side');
   }, []);
+  const handleLinks = () => {
+    links ? setLinks('') : setLinks(' active');
+  };
   return (
     <section className='card__section'>
       {/* {!showDetail && ( */}
       <div className={'card__conteiner ' + side}>
+        <p
+          className='fa-solid fa-ellipsis-vertical fa-2xl'
+          onClick={handleLinks}
+        ></p>
         <div className='img__container'>
           {project.image.map((image, i) => (
             <img
@@ -29,9 +37,9 @@ export default function ProjectCard({
         </div>
         <div
           className='card__project'
-          onClick={() => {
-            handleClick(!showDetail, project);
-          }}
+          // onClick={() => {
+          //   handleClick(!showDetail, project);
+          // }}
         >
           <h3 className='card__title'>{project.title}</h3>
           <div className='card__techs'>
@@ -41,19 +49,15 @@ export default function ProjectCard({
           </div>
           <p className='card__intro'>{project.description}</p>
         </div>
-        {/* <div className='link__conteiner'> */}
-        <Link
-          className='btn link__github'
-          to={project.urlGit[0]}
-          onMouseEnter={() => {
-            setBounce('fa-brands fa-github fa-xl fa-bounce');
-          }}
-          onMouseLeave={() => setBounce('fa-brands fa-github fa-xl')}
-          target='_blank'
-        >
-          <i className={bounce}></i> R e p o
-        </Link>
-        {/* </div> */}
+
+        <div className={'links__container' + links}>
+          {project.urlGit &&
+            project.urlGit.map((urlGit, i) => (
+              <Link key={i} className='btn link__github' to={urlGit.url}>
+                {urlGit.label}
+              </Link>
+            ))}
+        </div>
       </div>
       {/* )} */}
     </section>

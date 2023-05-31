@@ -57,12 +57,11 @@
   gap: 0.8rem;
   padding: 1rem 2rem;
   color: var(--darker--font);
-  box-shadow: inset 0 0 0 0.3rem var(--shadow--orange);
   margin-inline: auto;
 }
 .link__github:hover,
 .link__github:active {
-  box-shadow: inset 0 0 0 0.3rem rgba(230, 125, 34, 0.5); /*para el hover de portatil en adelante. */
+  box-shadow: inset 0 0 0 0.3rem var(--shadow--black); 
 }
 
 *:focus {
