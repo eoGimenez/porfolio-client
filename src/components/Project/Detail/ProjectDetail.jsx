@@ -1,9 +1,7 @@
 import './ProjectDetail.css';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function ProjectDetail({ project, showDetail, handleClick }) {
-  const [beat, setBeat] = useState('fa-brands fa-github fa-xl');
+export default function ProjectDetail({ project }) {
   return (
     <section className='section__detail'>
       <div className='project__conteiner'>
@@ -19,19 +17,23 @@ export default function ProjectDetail({ project, showDetail, handleClick }) {
         </div>
         <div className='img__conteiner'>
           <img
-            src={project.image}
+            src={project.image[0]}
             className='project__img'
             alt={'This is the image of the project :' + project.title}
           />
-          <Link
-            className='btn link__github'
-            to={project.urlGit}
-            onMouseEnter={() => setBeat('fa-brands fa-github fa-xl fa-bounce')}
-            onMouseLeave={() => setBeat('fa-brands fa-github fa-xl')}
-            target='_blank'
-          >
-            <i className={beat}></i> R e p o
-          </Link>
+          <div className='project__links'>
+            {project.urlGit &&
+              project.urlGit.map((urlGit, i) => (
+                <Link
+                  key={i}
+                  className='btn link__github'
+                  to={urlGit.url}
+                  target='_blank'
+                >
+                  {urlGit.label}
+                </Link>
+              ))}
+          </div>
         </div>
       </div>
     </section>

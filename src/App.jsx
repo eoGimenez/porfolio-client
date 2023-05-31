@@ -50,13 +50,7 @@ export default function App() {
         </div>
         {!showDetail && !userDash && <About />}
         {!showDetail && !userDash && <ContactMe />}
-        {showDetail && !userDash && (
-          <ProjectDetail
-            project={project}
-            showDetail={showDetail}
-            handleClick={handleClick}
-          />
-        )}
+        {showDetail && !userDash && <ProjectDetail project={project} />}
         {!showDetail && userDash && <UserAuth projects={projects} />}
       </main>
       <Footer handleAPI={handleAPI} userDash={userDash} />
