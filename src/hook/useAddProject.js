@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import ProjectsService from '../services/projects.service';
 import { projectsContext } from '../context/projects.context';
+import { AuthContext } from '../context/auth.context';
 
 export function useAddProject({
   title,
@@ -12,6 +13,7 @@ export function useAddProject({
 }) {
   const projectService = new ProjectsService();
   const { getProjects } = useContext(projectsContext);
+  const { user } = useContext(AuthContext);
 
   const handleProject = (e) => {
     e.preventDefault();
@@ -23,6 +25,7 @@ export function useAddProject({
         urlGit,
         technologies,
         image,
+        author: user._id,
       })
       .then((result) => {
         getProjects();

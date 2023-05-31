@@ -8,10 +8,12 @@ export default function NewProject() {
   const title = useField({ type: 'text', field: '' });
   const description = useField({ type: 'text', field: '' });
   const secDescription = useField({ type: 'text', field: '' });
-  const urlGit = useField({ type: 'text', field: '' });
+  // const urlGit = useField({ type: 'text', field: '' });
+  // const [urlsGit, setUrlsGit] = useState([]);
+  // const [urlGitAux, setUrlGitAux] = useState('');
   const [technologiesArr, setTechnologiesArr] = useState([]);
-  const [imageUrl, setImageUrl] = useState([]);
   const [techAux, setTechAux] = useState('');
+  const [imageUrl, setImageUrl] = useState([]);
   const { handleImage, imageAuxil } = useFile();
 
   const handleTech = (e) => {
@@ -25,11 +27,19 @@ export default function NewProject() {
     setImageUrl([...imageUrl, imageAuxil]);
   };
 
+  // Hay que armar el pusher de urlS
+
+  // const handleGitUrl = (e) => {
+  //   e.preventDefault();
+  //   setUrlsGit([...urlsGit, urlGitAux]);
+  //   setUrlGitAux('');
+  // };
+
   const { handleProject } = useAddProject({
     title: title.value,
     description: description.value,
     secDescription: secDescription.value,
-    urlGit: urlGit.value,
+    // urlGit: urlsGit,
     technologies: technologiesArr,
     image: imageUrl,
   });
@@ -50,9 +60,9 @@ export default function NewProject() {
             placeholder='Segundo parrafo descripción'
           />
         </fieldset>
-        <fieldset>
+        {/* <fieldset>
           <input {...urlGit} required placeholder='URL repositorio' />
-        </fieldset>
+        </fieldset> */}
         {imageUrl &&
           imageUrl.map((url, i) => (
             <fieldset key={i} className='fieldset__tech'>

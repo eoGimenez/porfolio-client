@@ -13,7 +13,6 @@ export default function ProjectCard({
   useEffect(() => {
     index % 2 === 0 ? setSide('left__side') : setSide('rigth__side');
   }, []);
-  
   return (
     <section className='card__section'>
       {/* {!showDetail && ( */}
@@ -45,7 +44,7 @@ export default function ProjectCard({
         {/* <div className='link__conteiner'> */}
         <Link
           className='btn link__github'
-          to={project.urlGit}
+          to={project.urlGit[0]}
           onMouseEnter={() => {
             setBounce('fa-brands fa-github fa-xl fa-bounce');
           }}
