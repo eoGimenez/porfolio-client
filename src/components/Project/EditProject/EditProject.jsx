@@ -80,14 +80,14 @@ export default function EditProject({ project }) {
         <button className='btnn btn__form'>Actualizar proyecto</button>
       </form>
       <form className='project__form' onSubmit={handleSubmitImage}>
-        <h3>Agregar imagen</h3>
+        <h4>Agregar imagen</h4>
         <fieldset>
           <input type='file' onChange={(e) => handleImage(e)} />
         </fieldset>
         <button className='btnn btn__form'>Agregar tecnologia</button>
       </form>
       <form className='project__form' onSubmit={handleTech}>
-        <h3>Agregar tecnologia</h3>
+        <h4>Agregar tecnologia</h4>
         <fieldset>
           <input
             type='text'

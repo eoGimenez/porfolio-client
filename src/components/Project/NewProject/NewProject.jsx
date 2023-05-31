@@ -78,7 +78,7 @@ export default function NewProject() {
           ))}
         <button className='btnn btn__form'>Crear proyecto</button>
       </form>
-      <h3>Agregar imagen</h3>
+      <h4>Agregar imagen</h4>
       <form className='project__form' onSubmit={handleImages}>
         <fieldset>
           <input
@@ -91,7 +91,7 @@ export default function NewProject() {
         <button className='btnn btn__form'>Agregar Imagen</button>
       </form>
       <form className='project__form' onSubmit={handleGitUrl}>
-        <h3>Agregar url git</h3>
+        <h4>Agregar url git</h4>
         <fieldset>
           <input
             type='text'
@@ -111,7 +111,7 @@ export default function NewProject() {
         <button className='btnn btn__form'>Agregar urlGit</button>
       </form>
       <form className='project__form' onSubmit={handleTech}>
-        <h3>Agregar tecnología</h3>
+        <h4>Agregar tecnología</h4>
         <fieldset>
           <input
             type='text'
