@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 export default function ContactMe() {
   const refForm = useRef();
   const [bounce, setBounce] = useState({ github: '', linkedin: '' });
+  const [sended, setSended] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,6 +17,13 @@ export default function ContactMe() {
     emailjs
       .sendForm(serviceId, templateId, refForm.current, publicKey)
       .then((result) => {
+        if (result.status) {
+          setSended(!sended);
+          setTimeout(() => {
+            setSended(!sended);
+            refForm.current.reset();
+          }, 1500);
+        }
         return { status: result.status, text: result.text };
       })
       .catch((err) => console.log(err));
@@ -47,7 +55,8 @@ export default function ContactMe() {
           <i className={'fa-brands fa-linkedin fa-lg' + bounce.linkedin}></i>{' '}
         </Link>
       </div>
-      <h3 className='contact__title'>Escríbeme !</h3>
+      {!sended && <h3 className='contact__title'>Escríbeme !</h3>}
+      {sended && <h4>Email enviado correctamente!</h4>}
       <form
         className='contact__form'
         method='POST'
