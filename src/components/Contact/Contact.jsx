@@ -19,10 +19,7 @@ export default function ContactMe() {
       .then((result) => {
         if (result.status) {
           setSended(!sended);
-          setTimeout(() => {
-            setSended(!sended);
-            refForm.current.reset();
-          }, 1500);
+          refForm.current.reset();
         }
         return { status: result.status, text: result.text };
       })
