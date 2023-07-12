@@ -3,21 +3,43 @@ import ProjectsService from '../services/projects.service';
 
 export function useFile() {
   const projectService = new ProjectsService();
-  const [imageAuxil, setImageAuxil] = useState('');
-  
+  const [image, setImage] = useState(null);
+  const [status, setStatus] = useState({});
+  const [isLoadingImg, setIsLoadingImg] = useState(false);
 
-  const handleImage = (e) => {
+  const onChange = (e) => {
+    handleImage(e.target.files[0]);
+  };
+
+  const handleDrag = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    handleImage(e.dataTransfer.files[0]);
+  };
+
+  function handleImage(file) {
+    setIsLoadingImg(true);
     const uploadData = new FormData();
-    uploadData.append('image', e.target.files[0]);
+    uploadData.append('image', file);
     projectService
       .uploadFile(uploadData)
       .then((response) => {
         console.log(response);
-        setImageAuxil(response.data.imageUrl);
-        return imageAuxil;
+        setStatus({ message: 'The file was successfully uploaded' });
+        setImage(response.data.imageUrl);
+        setIsLoadingImg(!isLoadingImg);
       })
-      .catch((err) => console.log('Error while uploading the image: ', err));
-  };
+      .catch((err) => {
+        setStatus({
+          message: 'Ocurrió un error de red, por favor, inténtalo nuevamente',
+          codeError: err,
+        });
+        setIsLoadingImg(!isLoadingImg);
+      });
+  }
 
-  return { handleImage, imageAuxil };
+  return { image, status, isLoadingImg, onChange, handleDrag, handleDrop };
 }

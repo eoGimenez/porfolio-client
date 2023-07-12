@@ -45,10 +45,19 @@ h4 {
   justify-self: center;
 }
 .fieldset__tech,
-.fieldset__image {
+.fieldset__image,
+.fieldset__url {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.path__img__parraf {
+  width: 15rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  align-self: center;
+  margin: 0;
 }
 
 @media (min-width: 20em) {

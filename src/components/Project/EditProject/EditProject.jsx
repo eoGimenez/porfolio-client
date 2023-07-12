@@ -3,6 +3,9 @@ import { useField } from '../../../hook/useField';
 import '../FormProject.css';
 import { useEdit } from '../../../hook/useEditProject';
 import { useFile } from '../../../hook/useFile';
+import Selector from '../../Uploader/Selector/Selector';
+import Loading from '../../Uploader/Loading/Loading';
+import Successfull from '../../Uploader/Successfull/Successfull';
 
 export default function EditProject({ project }) {
   const title = useField({ type: 'text', field: project.title });
@@ -13,7 +16,8 @@ export default function EditProject({ project }) {
   });
   const urlGit = useField({ type: 'text', field: project.urlGit });
   const [techAux, setTechAux] = useState('');
-  const { handleImage, imageAuxil } = useFile();
+  const { image, isLoadingImg, onChange, status, handleDrag, handleDrop } =
+    useFile();
 
   const handleTech = (e) => {
     e.preventDefault();
@@ -23,7 +27,7 @@ export default function EditProject({ project }) {
 
   const handleSubmitImage = (e) => {
     e.preventDefault();
-    project.image.push(imageAuxil);
+    project.image.push(image);
   };
 
   const { handleEdit } = useEdit({
@@ -35,7 +39,7 @@ export default function EditProject({ project }) {
     technologies: project.technologies,
     image: project.image,
   });
-  console.log(urlGit.value)
+  console.log(image, isLoadingImg);
   return (
     <section className='section__edit'>
       <form className='project__form' onSubmit={handleEdit}>
@@ -48,12 +52,22 @@ export default function EditProject({ project }) {
         <fieldset>
           <textarea {...secDescription} required />
         </fieldset>
-        <fieldset>
-          <input {...urlGit} required />
-        </fieldset>
+        {project.urlGit.map((url, i) => (
+          <fieldset key={i} className='fieldset__url'>
+            <p>{url.label}</p>
+            <p
+              onClick={() => {
+                project.urlGit.splice(i, 1);
+              }}
+              className='btnn btn__form'
+            >
+              Delete
+            </p>
+          </fieldset>
+        ))}
         {project.image.map((image, i) => (
           <fieldset key={i} className='fieldset__image'>
-            <p>{image}</p>
+            <p className='path__img__parraf'>{i} {image}</p>
             <p
               onClick={() => {
                 project.image.splice(i, 1);
@@ -81,10 +95,19 @@ export default function EditProject({ project }) {
       </form>
       <form className='project__form' onSubmit={handleSubmitImage}>
         <h4>Agregar imagen</h4>
-        <fieldset>
-          <input type='file' onChange={(e) => handleImage(e)} />
+        <fieldset className='fieldset--img--handler'>
+          {!image && !isLoadingImg && (
+            <Selector
+              onChange={onChange}
+              status={status}
+              handleDrop={handleDrop}
+              handleDrag={handleDrag}
+            />
+          )}
+          {!image && isLoadingImg && <Loading />}
+          {image && <Successfull image={image} />}
         </fieldset>
-        <button className='btnn btn__form'>Agregar tecnologia</button>
+        <button className='btnn btn__form'>Agregar imagen</button>
       </form>
       <form className='project__form' onSubmit={handleTech}>
         <h4>Agregar tecnologia</h4>

@@ -1,0 +1,84 @@
+.section--uploader--img {
+  margin-inline: auto;
+  margin-top: 10rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.uploader--container {
+  max-width: 40rem;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+}
+
+.uploader--container > h1 {
+  font-size: 1.8rem;
+  text-align: center;
+  line-height: 1.7;
+  font-weight: 500;
+}
+
+.uploader--container > p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.4rem;
+}
+
+.uploader--container {
+  margin-inline: auto;
+}
+.fieldset--img--handler {
+  text-align: center;
+}
+/* .img--handler--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+.img--handler {
+  max-width: 30rem;
+  max-height: 20rem;
+  padding-block: 2.5rem;
+  border: 2px dashed var(--drag--border);
+  background-color: var(--drag--back);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  cursor: pointer;
+  margin-inline: auto;
+}
+
+.img--handler > svg {
+  margin-top: 1rem;
+}
+
+.img--handler > p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--gray--font);
+}
+
+.img--handler--container > h3 {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  font-weight: 500;
+  color: var(--gray--font);
+}
+
+.text--align--center {
+  text-align: center !important;
+}
+
+@media (min-width: 62em) {
+  /* .uploader--container {
+    padding: 0 !important;
+  } */
+}
