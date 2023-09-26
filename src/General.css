@@ -61,7 +61,7 @@
 }
 .link__github:hover,
 .link__github:active {
-  box-shadow: inset 0 0 0 0.3rem var(--shadow--black); 
+  box-shadow: inset 0 0 0 0.3rem var(--shadow--black);
 }
 
 *:focus {
@@ -89,4 +89,10 @@
 }
 .fa-envira {
   color: #4db33d;
+}
+.fa-python {
+  color: #3776ab;
+}
+.fa-bolt-lightning {
+  color: #000;
 }
