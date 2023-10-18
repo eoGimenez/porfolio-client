@@ -47,7 +47,7 @@ export default function Footer({ handleAPI, userDash }) {
               </Link>
             </p>
             <p>
-              <Link className='link' to='malito:e.o.gimenez@gmail.com'>
+              <Link className='link' to='mailto:e.o.gimenez@gmail.com'>
                 e.o.gimenez@gmail.com
               </Link>
             </p>
